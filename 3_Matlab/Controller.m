@@ -29,10 +29,10 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in btn_Setup.
 function btn_Setup_Callback(hObject, eventdata, handles)
-% mex -g Transfer_capture.cpp;
-% mex -g Transfer_extract.cpp;
-% mex -g helloMex.cpp;
-% mex -g Transfer_reset.cpp;
+mex -g Transfer_capture.cpp;
+mex -g Transfer_extract.cpp;
+mex -g helloMex.cpp;
+mex -g Transfer_reset.cpp;
 helloMex(); 
 % mex -g Transfer_pulse.cpp;
 % mex -g Transfer_realtime.cpp;
