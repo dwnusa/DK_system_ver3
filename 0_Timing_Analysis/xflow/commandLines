@@ -1,0 +1,2 @@
+C:/Xilinx/14.7/ISE_DS/ISE/sysgen/bin/nt/saferun.exe -- c:/xilinx/14.7/ise_ds/ise//bin/nt/xflow.exe -p xc6slx150-2fgg484 -implement par.opt dkver1_cw
+C:/Xilinx/14.7/ISE_DS/ISE/sysgen/bin/nt/saferun.exe -- c:/xilinx/14.7/ise_ds/ise//bin/nt/xflow.exe -p xc6slx150-2fgg484 -implement trace.opt dkver1_cw

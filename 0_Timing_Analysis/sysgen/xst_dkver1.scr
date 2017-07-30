@@ -1,0 +1,1 @@
+run -ifn xst_dkver1.prj -ifmt mixed -ofn dkver1_cw.ngc -ofmt NGC -p xc6slx150-2fgg484 -ent dkver1_cw -keep_hierarchy NO -iobuf YES -bus_delimiter () -top dkver1_cw -hierarchy_separator / -report_timing_constraint_problems warning -register_balancing no -iob Auto -uc dkver1_cw.xcf -write_timing_constraints yes

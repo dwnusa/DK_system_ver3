@@ -1,0 +1,461 @@
+
+############################################################################
+# XEM6310 - Xilinx constraints file
+#
+# Pin mappings for the XEM6310.  Use this as a template and comment out 
+# the pins that are not used in your design.  (By default, map will fail
+# if this file contains constraints for signals not in your design).
+#
+# Copyright (c) 2004-2010 Opal Kelly Incorporated
+# $Rev: 584 $ $Date: 2010-10-01 11:14:42 -0500 (Fri, 01 Oct 2010) $
+############################################################################
+CONFIG VCCAUX  = 3.3;
+//Required for Spartan-6
+NET "okUH[0]" TNM_NET = "okHostClk";
+TIMESPEC TS_okHostClk = PERIOD "okHostClk" 9.92 ns HIGH 50 %;
+
+NET "okUHU[*]" TNM = "okHostINOUT_grp";
+TIMEGRP "okHostINOUT_grp" OFFSET = IN 2 ns VALID 4 ns BEFORE "okUH[0]" RISING;
+TIMEGRP "okHostINOUT_grp" OFFSET = OUT 8 ns AFTER "okUH[0]" RISING;
+
+NET "okHU[2]" TNM = "okHostOUT_grp";
+NET "okHU[1]" TNM = "okHostOUT_grp";
+NET "okHU[0]" TNM = "okHostOUT_grp";
+TIMEGRP "okHostOUT_grp" OFFSET = OUT 8 ns AFTER "okUH[0]" RISING;
+
+NET "okUH[4]" TNM = "okHostIN_grp";
+NET "okUH[3]" TNM = "okHostIN_grp";
+NET "okUH[2]" TNM = "okHostIN_grp";
+NET "okUH[1]" TNM = "okHostIN_grp";
+TIMEGRP "okHostIN_grp" OFFSET = IN 2 ns VALID 2 ns BEFORE "okUH[0]" RISING;
+
+############################################################################
+## FrontPanel Host Interface
+############################################################################
+NET "okHU[0]" LOC = AA8;
+NET "okHU[0]" IOSTANDARD = LVCMOS18;
+NET "okHU[0]" SLEW = FAST;
+NET "okHU[1]" LOC = U10;
+NET "okHU[1]" IOSTANDARD = LVCMOS18;
+NET "okHU[1]" SLEW = FAST;
+NET "okHU[2]" LOC = AB5;
+NET "okHU[2]" IOSTANDARD = LVCMOS18;
+NET "okHU[2]" SLEW = FAST;
+
+NET "okUH[0]" LOC = Y12;
+# NET "okUH[0]" SLEW = FAST;
+NET "okUH[0]" IOSTANDARD = LVCMOS18;
+NET "okUH[1]" LOC = AA4;
+# NET "okUH[1]" SLEW = FAST;
+NET "okUH[1]" IOSTANDARD = LVCMOS18;
+NET "okUH[2]" LOC = AB3;
+# NET "okUH[2]" SLEW = FAST;
+NET "okUH[2]" IOSTANDARD = LVCMOS18;
+NET "okUH[3]" LOC = Y6;
+# NET "okUH[3]" SLEW = FAST;
+NET "okUH[3]" IOSTANDARD = LVCMOS18;
+NET "okUH[4]" LOC = AB21;
+# NET "okUH[4]" SLEW = FAST;
+NET "okUH[4]" IOSTANDARD = LVCMOS18;
+
+NET "okUHU[0]" LOC = AB12;
+NET "okUHU[0]" IOSTANDARD = LVCMOS18;
+NET "okUHU[0]" SLEW = FAST;
+NET "okUHU[1]" LOC = AA12;
+NET "okUHU[1]" IOSTANDARD = LVCMOS18;
+NET "okUHU[1]" SLEW = FAST;
+NET "okUHU[2]" LOC = Y13;
+NET "okUHU[2]" IOSTANDARD = LVCMOS18;
+NET "okUHU[2]" SLEW = FAST;
+NET "okUHU[3]" LOC = AB18;
+NET "okUHU[3]" IOSTANDARD = LVCMOS18;
+NET "okUHU[3]" SLEW = FAST;
+NET "okUHU[4]" LOC = AA18;
+NET "okUHU[4]" IOSTANDARD = LVCMOS18;
+NET "okUHU[4]" SLEW = FAST;
+NET "okUHU[5]" LOC = V15;
+NET "okUHU[5]" IOSTANDARD = LVCMOS18;
+NET "okUHU[5]" SLEW = FAST;
+NET "okUHU[6]" LOC = AB2;
+NET "okUHU[6]" IOSTANDARD = LVCMOS18;
+NET "okUHU[6]" SLEW = FAST;
+NET "okUHU[7]" LOC = AA2;
+NET "okUHU[7]" IOSTANDARD = LVCMOS18;
+NET "okUHU[7]" SLEW = FAST;
+NET "okUHU[8]" LOC = Y7;
+NET "okUHU[8]" IOSTANDARD = LVCMOS18;
+NET "okUHU[8]" SLEW = FAST;
+NET "okUHU[9]" LOC = Y4;
+NET "okUHU[9]" IOSTANDARD = LVCMOS18;
+NET "okUHU[9]" SLEW = FAST;
+NET "okUHU[10]" LOC = W4;
+NET "okUHU[10]" IOSTANDARD = LVCMOS18;
+NET "okUHU[10]" SLEW = FAST;
+NET "okUHU[11]" LOC = AB6;
+NET "okUHU[11]" IOSTANDARD = LVCMOS18;
+NET "okUHU[11]" SLEW = FAST;
+NET "okUHU[12]" LOC = AA6;
+NET "okUHU[12]" IOSTANDARD = LVCMOS18;
+NET "okUHU[12]" SLEW = FAST;
+NET "okUHU[13]" LOC = U13;
+NET "okUHU[13]" IOSTANDARD = LVCMOS18;
+NET "okUHU[13]" SLEW = FAST;
+NET "okUHU[14]" LOC = U14;
+NET "okUHU[14]" IOSTANDARD = LVCMOS18;
+NET "okUHU[14]" SLEW = FAST;
+NET "okUHU[15]" LOC = AA20;
+NET "okUHU[15]" IOSTANDARD = LVCMOS18;
+NET "okUHU[15]" SLEW = FAST;
+NET "okUHU[16]" LOC = T16;
+NET "okUHU[16]" IOSTANDARD = LVCMOS18;
+NET "okUHU[16]" SLEW = FAST;
+NET "okUHU[17]" LOC = AA10;
+NET "okUHU[17]" IOSTANDARD = LVCMOS18;
+NET "okUHU[17]" SLEW = FAST;
+NET "okUHU[18]" LOC = U16;
+NET "okUHU[18]" IOSTANDARD = LVCMOS18;
+NET "okUHU[18]" SLEW = FAST;
+NET "okUHU[19]" LOC = Y15;
+NET "okUHU[19]" IOSTANDARD = LVCMOS18;
+NET "okUHU[19]" SLEW = FAST;
+NET "okUHU[20]" LOC = R15;
+NET "okUHU[20]" IOSTANDARD = LVCMOS18;
+NET "okUHU[20]" SLEW = FAST;
+NET "okUHU[21]" LOC = U17;
+NET "okUHU[21]" IOSTANDARD = LVCMOS18;
+NET "okUHU[21]" SLEW = FAST;
+NET "okUHU[22]" LOC = AA14;
+NET "okUHU[22]" IOSTANDARD = LVCMOS18;
+NET "okUHU[22]" SLEW = FAST;
+NET "okUHU[23]" LOC = T15;
+NET "okUHU[23]" IOSTANDARD = LVCMOS18;
+NET "okUHU[23]" SLEW = FAST;
+NET "okUHU[24]" LOC = T10;
+NET "okUHU[24]" IOSTANDARD = LVCMOS18;
+NET "okUHU[24]" SLEW = FAST;
+NET "okUHU[25]" LOC = Y17;
+NET "okUHU[25]" IOSTANDARD = LVCMOS18;
+NET "okUHU[25]" SLEW = FAST;
+NET "okUHU[26]" LOC = AA16;
+NET "okUHU[26]" IOSTANDARD = LVCMOS18;
+NET "okUHU[26]" SLEW = FAST;
+NET "okUHU[27]" LOC = R16;
+NET "okUHU[27]" IOSTANDARD = LVCMOS18;
+NET "okUHU[27]" SLEW = FAST;
+NET "okUHU[28]" LOC = V9;
+NET "okUHU[28]" IOSTANDARD = LVCMOS18;
+NET "okUHU[28]" SLEW = FAST;
+NET "okUHU[29]" LOC = AB15;
+NET "okUHU[29]" IOSTANDARD = LVCMOS18;
+NET "okUHU[29]" SLEW = FAST;
+NET "okUHU[30]" LOC = Y5;
+NET "okUHU[30]" IOSTANDARD = LVCMOS18;
+NET "okUHU[30]" SLEW = FAST;
+NET "okUHU[31]" LOC = U8;
+NET "okUHU[31]" IOSTANDARD = LVCMOS18;
+NET "okUHU[31]" SLEW = FAST;
+
+NET "okAA" LOC = W11;
+NET "okAA" IOSTANDARD = LVCMOS18;
+
+
+
+
+############################################################################
+## Peripherals
+############################################################################
+# MCA-A
+#JP2-16
+NET "Adata[13]" LOC = G19;
+NET "Adata[13]" IOSTANDARD = LVCMOS33;
+#JP2-18
+NET "Adata[12]" LOC = F20;
+NET "Adata[12]" IOSTANDARD = LVCMOS33;
+#JP2-22
+NET "Adata[11]" LOC = J19;
+NET "Adata[11]" IOSTANDARD = LVCMOS33;
+#JP2-24
+NET "Adata[10]" LOC = D19;
+NET "Adata[10]" IOSTANDARD = LVCMOS33;
+#JP2-26
+NET "Adata[9]" LOC = D20;
+NET "Adata[9]" IOSTANDARD = LVCMOS33;
+#JP2-28
+NET "Adata[8]" LOC = F18;
+NET "Adata[8]" IOSTANDARD = LVCMOS33;
+#JP2-30
+NET "Adata[7]" LOC = F19;
+NET "Adata[7]" IOSTANDARD = LVCMOS33;
+#JP2-34
+NET "Adata[6]" LOC = L15;
+NET "Adata[6]" IOSTANDARD = LVCMOS33;
+#JP2-44
+NET "Adata[5]" LOC = U22;
+NET "Adata[5]" IOSTANDARD = LVCMOS33;
+#JP2-46
+NET "Adata[4]" LOC = R20;
+NET "Adata[4]" IOSTANDARD = LVCMOS33;
+#JP2-48
+NET "Adata[3]" LOC = R22;
+NET "Adata[3]" IOSTANDARD = LVCMOS33;
+#JP2-62
+NET "Adata[2]" LOC = K22;
+NET "Adata[2]" IOSTANDARD = LVCMOS33;
+#JP2-64
+NET "Adata[1]" LOC = G20;
+NET "Adata[1]" IOSTANDARD = LVCMOS33;
+#JP2-66
+NET "Adata[0]" LOC = G22;
+NET "Adata[0]" IOSTANDARD = LVCMOS33;
+
+#NET "Adata[0]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Adata[1]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Adata[2]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Adata[3]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Adata[4]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Adata[5]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Adata[6]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Adata[7]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Adata[8]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Adata[9]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Adata[10]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Adata[11]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Adata[12]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Adata[13]"  IN_TERM=UNTUNED_SPLIT_50;
+
+# MCA-B
+#JP1-15
+NET "Bdata[13]" LOC = W20;
+NET "Bdata[13]" IOSTANDARD = LVCMOS33;
+#JP1-17
+NET "Bdata[12]" LOC = W22;
+NET "Bdata[12]" IOSTANDARD = LVCMOS33;
+#JP1-19
+NET "Bdata[11]" LOC = U19;
+NET "Bdata[11]" IOSTANDARD = LVCMOS33;
+#JP1-21
+NET "Bdata[10]" LOC = V20;
+NET "Bdata[10]" IOSTANDARD = LVCMOS33;
+#JP1-23
+NET "Bdata[9]" LOC = C5;
+NET "Bdata[9]" IOSTANDARD = LVCMOS33;
+#JP1-25
+NET "Bdata[8]" LOC = A5;
+NET "Bdata[8]" IOSTANDARD = LVCMOS33;
+#JP1-27
+NET "Bdata[7]" LOC = D14;
+NET "Bdata[7]" IOSTANDARD = LVCMOS33;
+#JP1-29
+NET "Bdata[6]" LOC = C14;
+NET "Bdata[6]" IOSTANDARD = LVCMOS33;
+#JP1-31
+NET "Bdata[5]" LOC = E16;
+NET "Bdata[5]" IOSTANDARD = LVCMOS33;
+#JP1-33
+NET "Bdata[4]" LOC = D17;
+NET "Bdata[4]" IOSTANDARD = LVCMOS33;
+#JP1-37
+NET "Bdata[3]" LOC = D7;
+NET "Bdata[3]" IOSTANDARD = LVCMOS33;
+#JP1-39
+NET "Bdata[2]" LOC = D8;
+NET "Bdata[2]" IOSTANDARD = LVCMOS33;
+#JP1-41
+NET "Bdata[1]" LOC = L17;
+NET "Bdata[1]" IOSTANDARD = LVCMOS33;
+#JP1-43
+NET "Bdata[0]" LOC = K18;
+NET "Bdata[0]" IOSTANDARD = LVCMOS33;
+
+#NET "Bdata[0]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Bdata[1]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Bdata[2]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Bdata[3]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Bdata[4]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Bdata[5]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Bdata[6]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Bdata[7]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Bdata[8]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Bdata[9]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Bdata[10]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Bdata[11]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Bdata[12]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Bdata[13]"  IN_TERM=UNTUNED_SPLIT_50;
+
+# MCA-C
+#JP2-15
+NET "Cdata[13]" LOC = G16;
+NET "Cdata[13]" IOSTANDARD = LVCMOS33;
+#JP2-17
+NET "Cdata[12]" LOC = G17;
+NET "Cdata[12]" IOSTANDARD = LVCMOS33;
+#JP2-21
+NET "Cdata[11]" LOC = H18;
+NET "Cdata[11]" IOSTANDARD = LVCMOS33;
+#JP2-23
+NET "Cdata[10]" LOC = F16;
+NET "Cdata[10]" IOSTANDARD = LVCMOS33;
+#JP2-25
+NET "Cdata[9]" LOC = F17;
+NET "Cdata[9]" IOSTANDARD = LVCMOS33;
+#JP2-27
+NET "Cdata[8]" LOC = J17;
+NET "Cdata[8]" IOSTANDARD = LVCMOS33;
+#JP2-29
+NET "Cdata[7]" LOC = K17;
+NET "Cdata[7]" IOSTANDARD = LVCMOS33;
+#JP2-33
+NET "Cdata[6]" LOC = J16;
+NET "Cdata[6]" IOSTANDARD = LVCMOS33;
+#JP2-37
+NET "Cdata[5]" LOC = V21;
+NET "Cdata[5]" IOSTANDARD = LVCMOS33;
+#JP2-39
+NET "Cdata[4]" LOC = V22;
+NET "Cdata[4]" IOSTANDARD = LVCMOS33;
+#JP2-43
+NET "Cdata[3]" LOC = T22;
+NET "Cdata[3]" IOSTANDARD = LVCMOS33;
+#JP2-45
+NET "Cdata[2]" LOC = P21;
+NET "Cdata[2]" IOSTANDARD = LVCMOS33;
+#JP2-47
+NET "Cdata[1]" LOC = P22;
+NET "Cdata[1]" IOSTANDARD = LVCMOS33;
+#JP2-63
+NET "Cdata[0]" LOC = F21;
+NET "Cdata[0]" IOSTANDARD = LVCMOS33;
+
+#NET "Cdata[0]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Cdata[1]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Cdata[2]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Cdata[3]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Cdata[4]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Cdata[5]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Cdata[6]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Cdata[7]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Cdata[8]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Cdata[9]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Cdata[10]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Cdata[11]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Cdata[12]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Cdata[13]"  IN_TERM=UNTUNED_SPLIT_50;
+
+## MCA-D
+#JP1-16
+NET "Ddata[13]" LOC = T19;
+NET "Ddata[13]" IOSTANDARD = LVCMOS33;
+#JP1-18
+NET "Ddata[12]" LOC = T20;
+NET "Ddata[12]" IOSTANDARD = LVCMOS33;
+#JP1-20
+NET "Ddata[11]" LOC = P17;
+NET "Ddata[11]" IOSTANDARD = LVCMOS33;
+#JP1-22
+NET "Ddata[10]" LOC = N16;
+NET "Ddata[10]" IOSTANDARD = LVCMOS33;
+#JP1-24
+NET "Ddata[9]" LOC = M17;
+NET "Ddata[9]" IOSTANDARD = LVCMOS33;
+#JP1-26
+NET "Ddata[8]" LOC = M18;
+NET "Ddata[8]" IOSTANDARD = LVCMOS33;
+#JP1-28
+NET "Ddata[7]" LOC = P18;
+NET "Ddata[7]" IOSTANDARD = LVCMOS33;
+#JP1-30
+NET "Ddata[6]" LOC = R19;
+NET "Ddata[6]" IOSTANDARD = LVCMOS33;
+#JP1-32
+NET "Ddata[5]" LOC = D9;
+NET "Ddata[5]" IOSTANDARD = LVCMOS33;
+#JP1-34
+NET "Ddata[4]" LOC = C8;
+NET "Ddata[4]" IOSTANDARD = LVCMOS33;
+#JP1-38
+NET "Ddata[3]" LOC = D10;
+NET "Ddata[3]" IOSTANDARD = LVCMOS33;
+#JP1-46
+NET "Ddata[2]" LOC = D15;
+NET "Ddata[2]" IOSTANDARD = LVCMOS33;
+#JP1-50
+NET "Ddata[1]" LOC = B6;
+NET "Ddata[1]" IOSTANDARD = LVCMOS33;
+#JP1-52
+NET "Ddata[0]" LOC = A6;
+NET "Ddata[0]" IOSTANDARD = LVCMOS33;
+
+#NET "Ddata[0]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Ddata[1]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Ddata[2]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Ddata[3]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Ddata[4]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Ddata[5]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Ddata[6]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Ddata[7]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Ddata[8]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Ddata[9]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Ddata[10]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Ddata[11]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Ddata[12]"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "Ddata[13]"  IN_TERM=UNTUNED_SPLIT_50;
+
+###########################################
+#JP2-79
+NET "sys_clk" LOC = J22;
+NET "sys_clk" IOSTANDARD = LVCMOS33;
+NET "sys_clk" SLEW = FAST;
+#NET "clk"  IN_TERM=UNTUNED_SPLIT_50;
+#NET "clkp" LOC = "y11";
+#NET "clkn" LOC = AB11;
+#NET "clkn" IOSTANDARD = LVCMOS33;
+#NET "clkp" IOSTANDARD = LVDS_25;
+#NET "clkn" IOSTANDARD = LVDS_25;
+# LOC constraints
+#NET "clkp" IOSTANDARD = LVDS_25;
+#NET "clkn" IOSTANDARD = LVDS_25;
+# Global period constraint
+#NET "clkp" TNM_NET = "clk_63a6758a";
+#TIMESPEC "TS_clk_63a6758a" = PERIOD "clk_63a6758a" 10.0 ns HIGH 50 %;
+#
+#
+#
+#
+## Global period constraint
+#NET "clk" TNM_NET = "clk_63a6758a";
+#TIMESPEC "TS_clk_63a6758a" = PERIOD "clk_63a6758a" 20.0 ns HIGH 50 %;
+
+
+# LEDs ################################################################
+NET "led[0]" LOC = V19;
+NET "led[0]" IOSTANDARD = LVCMOS18;
+NET "led[2]" LOC = Y19;
+NET "led[2]" IOSTANDARD = LVCMOS18;
+NET "led[1]" LOC = V18;
+NET "led[1]" IOSTANDARD = LVCMOS18;
+NET "led[3]" LOC = AB14;
+NET "led[3]" IOSTANDARD = LVCMOS18;
+NET "led[4]" LOC = AB19;
+NET "led[4]" IOSTANDARD = LVCMOS18;
+NET "led[5]" LOC = AB17;
+NET "led[5]" IOSTANDARD = LVCMOS18;
+NET "led[6]" LOC = AB16;
+NET "led[6]" IOSTANDARD = LVCMOS18;
+NET "led[7]" LOC = AB10;
+NET "led[7]" IOSTANDARD = LVCMOS18;
+
+
+#
+#
+## Global period constraint
+#NET "clk" TNM_NET = "clk_7c6929a4";
+#TIMESPEC "TS_clk_7c6929a4" = PERIOD "clk_7c6929a4" 10.0 ns HIGH 50 %;
+#
+#
+## Global period constraint
+#NET "clk" TNM_NET = "clk_7c6929a4";
+#TIMESPEC "TS_clk_7c6929a4" = PERIOD "clk_7c6929a4" 10.0 ns HIGH 50 %;
+
+
+# PlanAhead Generated IO constraints 
+

@@ -1,0 +1,1510 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Reading constraint file dkver1_cw.xcf.
+XCF parsing done.
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "xst_dkver1.prj"
+Input Format                       : mixed
+Synthesis Constraint File          : dkver1_cw.xcf
+
+---- Target Parameters
+Output File Name                   : "dkver1_cw.ngc"
+Output Format                      : NGC
+Target Device                      : xc6slx150-2fgg484
+
+---- Source Options
+Entity Name                        : dkver1_cw
+Top Module Name                    : dkver1_cw
+Automatic Register Balancing       : no
+
+---- Target Options
+Add IO Buffers                     : YES
+Pack IO Registers into IOBs        : Auto
+
+---- General Options
+Keep Hierarchy                     : NO
+Bus Delimiter                      : ()
+Hierarchy Separator                : /
+Write Timing Constraints           : yes
+
+---- Other Options
+report_timing_constraint_problems  : warning
+
+=========================================================================
+
+WARNING:Xst:29 - Optimization Effort not specified
+The following parameters have been added:
+Optimization Goal                  : SPEED
+
+=========================================================================
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd" into library work
+Parsing entity <addsb_11_0_c56061fb4dfcdca4>.
+Parsing architecture <addsb_11_0_c56061fb4dfcdca4_a> of entity <addsb_11_0_c56061fb4dfcdca4>.
+Parsing entity <cntr_11_0_00fd590c4e52f518>.
+Parsing architecture <cntr_11_0_00fd590c4e52f518_a> of entity <cntr_11_0_00fd590c4e52f518>.
+Parsing entity <cntr_11_0_80e8f2a7fd3ba205>.
+Parsing architecture <cntr_11_0_80e8f2a7fd3ba205_a> of entity <cntr_11_0_80e8f2a7fd3ba205>.
+Parsing entity <cntr_11_0_81606633e3bc7b5b>.
+Parsing architecture <cntr_11_0_81606633e3bc7b5b_a> of entity <cntr_11_0_81606633e3bc7b5b>.
+Parsing entity <cntr_11_0_de5346cf0bbfe7ef>.
+Parsing architecture <cntr_11_0_de5346cf0bbfe7ef_a> of entity <cntr_11_0_de5346cf0bbfe7ef>.
+Parsing package <conv_pkg>.
+Parsing package body <conv_pkg>.
+Parsing entity <srl17e>.
+Parsing architecture <structural> of entity <srl17e>.
+Parsing entity <synth_reg>.
+Parsing architecture <structural> of entity <synth_reg>.
+Parsing entity <synth_reg_reg>.
+Parsing architecture <behav> of entity <synth_reg_reg>.
+Parsing entity <single_reg_w_init>.
+Parsing architecture <structural> of entity <single_reg_w_init>.
+Parsing entity <synth_reg_w_init>.
+Parsing architecture <structural> of entity <synth_reg_w_init>.
+Parsing entity <xladdsub_DKver1>.
+Parsing architecture <behavior> of entity <xladdsub_dkver1>.
+Parsing entity <accum_4f86e0e3cd>.
+Parsing architecture <behavior> of entity <accum_4f86e0e3cd>.
+Parsing entity <convert_func_call>.
+Parsing architecture <behavior> of entity <convert_func_call>.
+Parsing entity <xlconvert>.
+Parsing architecture <behavior> of entity <xlconvert>.
+Parsing entity <xlcounter_free_DKver1>.
+Parsing architecture <behavior> of entity <xlcounter_free_dkver1>.
+Parsing entity <inverter_6844eee868>.
+Parsing architecture <behavior> of entity <inverter_6844eee868>.
+Parsing entity <logical_799f62af22>.
+Parsing architecture <behavior> of entity <logical_799f62af22>.
+Parsing entity <xlregister>.
+Parsing architecture <behavior> of entity <xlregister>.
+Parsing entity <xlslice>.
+Parsing architecture <behavior> of entity <xlslice>.
+Parsing entity <delay_465b2eaa2d>.
+Parsing architecture <behavior> of entity <delay_465b2eaa2d>.
+Parsing entity <xldelay>.
+Parsing architecture <behavior> of entity <xldelay>.
+Parsing entity <relational_ad15df22d8>.
+Parsing architecture <behavior> of entity <relational_ad15df22d8>.
+Parsing entity <logical_a6d07705dd>.
+Parsing architecture <behavior> of entity <logical_a6d07705dd>.
+Parsing entity <logical_954ee29728>.
+Parsing architecture <behavior> of entity <logical_954ee29728>.
+Parsing entity <relational_12d5ac26f1>.
+Parsing architecture <behavior> of entity <relational_12d5ac26f1>.
+Parsing entity <relational_8d1942da8e>.
+Parsing architecture <behavior> of entity <relational_8d1942da8e>.
+Parsing entity <mux_4832b2866e>.
+Parsing architecture <behavior> of entity <mux_4832b2866e>.
+Parsing entity <concat_104f8d24fb>.
+Parsing architecture <behavior> of entity <concat_104f8d24fb>.
+Parsing entity <offsetctrl_1d_entity_722b8ff6b9>.
+Parsing architecture <structural> of entity <offsetctrl_1d_entity_722b8ff6b9>.
+Parsing entity <offsetctrl_3d_entity_dcaf28bbd4>.
+Parsing architecture <structural> of entity <offsetctrl_3d_entity_dcaf28bbd4>.
+Parsing entity <peaksensing_3d_entity_dc4d47ad19>.
+Parsing architecture <structural> of entity <peaksensing_3d_entity_dc4d47ad19>.
+Parsing entity <sigdetect_10d_entity_019b4552c7>.
+Parsing architecture <structural> of entity <sigdetect_10d_entity_019b4552c7>.
+Parsing entity <sigmux_1d_entity_7b192397cd>.
+Parsing architecture <structural> of entity <sigmux_1d_entity_7b192397cd>.
+Parsing entity <sigseparation1_1d_entity_9e1277b02d>.
+Parsing architecture <structural> of entity <sigseparation1_1d_entity_9e1277b02d>.
+Parsing entity <dkver1>.
+Parsing architecture <structural> of entity <dkver1>.
+Parsing VHDL file "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1_cw.vhd" into library work
+Parsing entity <xlclockdriver>.
+Parsing architecture <behavior> of entity <xlclockdriver>.
+Parsing entity <default_clock_driver_DKver1>.
+Parsing architecture <structural> of entity <default_clock_driver_dkver1>.
+Parsing entity <dkver1_cw>.
+Parsing architecture <structural> of entity <dkver1_cw>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <dkver1_cw> (architecture <structural>) from library <work>.
+
+Elaborating entity <default_clock_driver_DKver1> (architecture <structural>) from library <work>.
+
+Elaborating entity <xlclockdriver> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <synth_reg_w_init> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <single_reg_w_init> (architecture <structural>) with generics from library <work>.
+WARNING:HDLCompiler:89 - "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd" Line 2239: <fdre> remains a black-box since it has no binding entity.
+
+Elaborating entity <dkver1> (architecture <structural>) from library <work>.
+
+Elaborating entity <xldelay> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <synth_reg> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <srl17e> (architecture <structural>) with generics from library <work>.
+WARNING:HDLCompiler:89 - "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd" Line 2014: <fde> remains a black-box since it has no binding entity.
+
+Elaborating entity <offsetctrl_1d_entity_722b8ff6b9> (architecture <structural>) from library <work>.
+
+Elaborating entity <xladdsub_DKver1> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <addsb_11_0_c56061fb4dfcdca4> (architecture <addsb_11_0_c56061fb4dfcdca4_a>) from library <work>.
+
+Elaborating entity <offsetctrl_3d_entity_dcaf28bbd4> (architecture <structural>) from library <work>.
+
+Elaborating entity <accum_4f86e0e3cd> (architecture <behavior>) from library <work>.
+
+Elaborating entity <xlconvert> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <convert_func_call> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <synth_reg> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <srl17e> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <xlconvert> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <synth_reg> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <srl17e> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <xlcounter_free_DKver1> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <cntr_11_0_00fd590c4e52f518> (architecture <>) from library <work>.
+
+Elaborating entity <inverter_6844eee868> (architecture <behavior>) from library <work>.
+
+Elaborating entity <logical_799f62af22> (architecture <behavior>) from library <work>.
+
+Elaborating entity <xlregister> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <synth_reg_w_init> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <single_reg_w_init> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <xlslice> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <xlslice> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <peaksensing_3d_entity_dc4d47ad19> (architecture <structural>) from library <work>.
+
+Elaborating entity <delay_465b2eaa2d> (architecture <behavior>) from library <work>.
+WARNING:HDLCompiler:1127 - "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd" Line 3233: Assignment to op_mem_0_join_10_5 ignored, since the identifier is never used
+
+Elaborating entity <xldelay> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <xldelay> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <synth_reg> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <srl17e> (architecture <structural>) with generics from library <work>.
+WARNING:HDLCompiler:89 - "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd" Line 2002: <srl16e> remains a black-box since it has no binding entity.
+
+Elaborating entity <xlregister> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <synth_reg_w_init> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <single_reg_w_init> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <relational_ad15df22d8> (architecture <behavior>) from library <work>.
+
+Elaborating entity <sigdetect_10d_entity_019b4552c7> (architecture <structural>) from library <work>.
+
+Elaborating entity <xlcounter_free_DKver1> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <cntr_11_0_81606633e3bc7b5b> (architecture <>) from library <work>.
+
+Elaborating entity <xldelay> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <synth_reg> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <srl17e> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <xldelay> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <synth_reg> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <srl17e> (architecture <structural>) with generics from library <work>.
+
+Elaborating entity <logical_a6d07705dd> (architecture <behavior>) from library <work>.
+
+Elaborating entity <logical_954ee29728> (architecture <behavior>) from library <work>.
+
+Elaborating entity <relational_12d5ac26f1> (architecture <behavior>) from library <work>.
+
+Elaborating entity <relational_8d1942da8e> (architecture <behavior>) from library <work>.
+
+Elaborating entity <sigmux_1d_entity_7b192397cd> (architecture <structural>) from library <work>.
+
+Elaborating entity <xlcounter_free_DKver1> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <cntr_11_0_80e8f2a7fd3ba205> (architecture <>) from library <work>.
+
+Elaborating entity <mux_4832b2866e> (architecture <behavior>) from library <work>.
+
+Elaborating entity <sigseparation1_1d_entity_9e1277b02d> (architecture <structural>) from library <work>.
+
+Elaborating entity <concat_104f8d24fb> (architecture <behavior>) from library <work>.
+
+Elaborating entity <xlconvert> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <convert_func_call> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <xlcounter_free_DKver1> (architecture <behavior>) with generics from library <work>.
+
+Elaborating entity <cntr_11_0_de5346cf0bbfe7ef> (architecture <>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <dkver1_cw>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1_cw.vhd".
+    Set property "syn_black_box = true" for instance <persistentdff_inst>.
+    Set property "syn_noprune = true" for instance <persistentdff_inst>.
+    Set property "optimize_primitives = false" for instance <persistentdff_inst>.
+    Set property "dont_touch = true" for instance <persistentdff_inst>.
+    Set property "MAX_FANOUT = REDUCE" for signal <ce_1_sg_x6>.
+    Set property "syn_keep = true" for signal <persistentdff_inst_q>.
+    Set property "KEEP = TRUE" for signal <persistentdff_inst_q>.
+WARNING:Xst:37 - Detected unknown constraint/property "preserve_signal". This constraint/property is not supported by the current software release and will be ignored.
+WARNING:Xst:647 - Input <ce> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <dkver1_cw> synthesized.
+
+Synthesizing Unit <default_clock_driver_DKver1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1_cw.vhd".
+    Set property "syn_noprune = true".
+    Set property "optimize_primitives = false".
+    Set property "dont_touch = true".
+INFO:Xst:3210 - "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1_cw.vhd" line 378: Output port <clr> of the instance <xlclockdriver> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1_cw.vhd" line 378: Output port <ce_logic> of the instance <xlclockdriver> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <default_clock_driver_DKver1> synthesized.
+
+Synthesizing Unit <xlclockdriver>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1_cw.vhd".
+        period = 1
+        log_2_period = 1
+        pipeline_regs = 5
+        use_bufg = 0
+    Set property "MAX_FANOUT = REDUCE" for signal <ce_vec>.
+    Set property "MAX_FANOUT = REDUCE" for signal <ce_vec_logic>.
+    Summary:
+	no macro.
+Unit <xlclockdriver> synthesized.
+
+Synthesizing Unit <synth_reg_w_init_1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 1
+        init_index = 0
+        init_value = "0000"
+        latency = 1
+    Summary:
+	no macro.
+Unit <synth_reg_w_init_1> synthesized.
+
+Synthesizing Unit <single_reg_w_init_1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 1
+        init_index = 0
+        init_value = "0000"
+    Set property "syn_black_box = true" for instance <fd_prim_array[0].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Summary:
+	no macro.
+Unit <single_reg_w_init_1> synthesized.
+
+Synthesizing Unit <dkver1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+    Summary:
+	no macro.
+Unit <dkver1> synthesized.
+
+Synthesizing Unit <xldelay_1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 14
+        latency = 1
+        reg_retiming = 0
+        reset = 0
+WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <xldelay_1> synthesized.
+
+Synthesizing Unit <synth_reg_1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 14
+        latency = 1
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <synth_reg_1> synthesized.
+
+Synthesizing Unit <srl17e_1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 14
+        latency = 1
+    Set property "syn_black_box = true" for instance <reg_array[0].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[1].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[2].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[3].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[4].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[5].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[6].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[7].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[8].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[9].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[10].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[11].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[12].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[13].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Summary:
+	no macro.
+Unit <srl17e_1> synthesized.
+
+Synthesizing Unit <offsetctrl_1d_entity_722b8ff6b9>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+INFO:Xst:3210 - "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd" line 3677: Output port <c_out> of the instance <addsub> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd" line 3712: Output port <c_out> of the instance <addsub1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd" line 3747: Output port <c_out> of the instance <addsub2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd" line 3782: Output port <c_out> of the instance <addsub3> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <offsetctrl_1d_entity_722b8ff6b9> synthesized.
+
+Synthesizing Unit <xladdsub_DKver1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        core_name0 = "addsb_11_0_c56061fb4dfcdca4"
+        a_width = 14
+        a_bin_pt = 0
+        a_arith = 2
+        c_in_width = 16
+        c_in_bin_pt = 4
+        c_in_arith = 1
+        c_out_width = 16
+        c_out_bin_pt = 4
+        c_out_arith = 1
+        b_width = 20
+        b_bin_pt = 0
+        b_arith = 2
+        s_width = 14
+        s_bin_pt = 0
+        s_arith = 2
+        rst_width = 1
+        rst_bin_pt = 0
+        rst_arith = 1
+        en_width = 1
+        en_bin_pt = 0
+        en_arith = 1
+        full_s_width = 21
+        full_s_arith = 2
+        mode = 1
+        extra_registers = 0
+        latency = 1
+        quantization = 2
+        overflow = 2
+        c_latency = 1
+        c_output_width = 21
+        c_has_c_in = 0
+        c_has_c_out = 0
+WARNING:Xst:647 - Input <c_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 23-bit adder for signal <core_s[20]_GND_18_o_add_1_OUT> created at line 1247.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   9 Multiplexer(s).
+Unit <xladdsub_DKver1> synthesized.
+
+Synthesizing Unit <offsetctrl_3d_entity_dcaf28bbd4>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+    Summary:
+	no macro.
+Unit <offsetctrl_3d_entity_dcaf28bbd4> synthesized.
+
+Synthesizing Unit <accum_4f86e0e3cd>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32-bit register for signal <accum_reg_41_23>.
+    Found 32-bit adder for signal <accum_reg_41_23[31]_cast_51_42[31]_add_3_OUT> created at line 2616.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  32 D-type flip-flop(s).
+Unit <accum_4f86e0e3cd> synthesized.
+
+Synthesizing Unit <xlconvert_1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        din_width = 20
+        din_bin_pt = 0
+        din_arith = 1
+        dout_width = 20
+        dout_bin_pt = 0
+        dout_arith = 2
+        en_width = 1
+        en_bin_pt = 0
+        en_arith = 1
+        bool_conversion = 0
+        latency = 1
+        quantization = 2
+        overflow = 1
+    Summary:
+	no macro.
+Unit <xlconvert_1> synthesized.
+
+Synthesizing Unit <convert_func_call_1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        din_width = 20
+        din_bin_pt = 0
+        din_arith = 1
+        dout_width = 20
+        dout_bin_pt = 0
+        dout_arith = 2
+        quantization = 2
+        overflow = 1
+    Summary:
+	no macro.
+Unit <convert_func_call_1> synthesized.
+
+Synthesizing Unit <synth_reg_2>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 20
+        latency = 1
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <synth_reg_2> synthesized.
+
+Synthesizing Unit <srl17e_2>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 20
+        latency = 1
+    Set property "syn_black_box = true" for instance <reg_array[0].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[1].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[2].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[3].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[4].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[5].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[6].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[7].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[8].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[9].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[10].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[11].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[12].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[13].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[14].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[15].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[16].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[17].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[18].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[19].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Summary:
+	no macro.
+Unit <srl17e_2> synthesized.
+
+Synthesizing Unit <xlconvert_2>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        din_width = 1
+        din_bin_pt = 0
+        din_arith = 1
+        dout_width = 1
+        dout_bin_pt = 0
+        dout_arith = 1
+        en_width = 1
+        en_bin_pt = 0
+        en_arith = 1
+        bool_conversion = 1
+        latency = 1
+        quantization = 2
+        overflow = 1
+    Summary:
+	no macro.
+Unit <xlconvert_2> synthesized.
+
+Synthesizing Unit <synth_reg_3>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 1
+        latency = 1
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <synth_reg_3> synthesized.
+
+Synthesizing Unit <srl17e_3>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 1
+        latency = 1
+    Set property "syn_black_box = true" for instance <reg_array[0].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Summary:
+	no macro.
+Unit <srl17e_3> synthesized.
+
+Synthesizing Unit <xlcounter_free_DKver1_1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        core_name0 = "cntr_11_0_00fd590c4e52f518"
+        op_width = 13
+        op_arith = 1
+    Set property "syn_black_box = true" for instance <comp0.core_instance0>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+WARNING:Xst:647 - Input <up> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <load> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <din> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <xlcounter_free_DKver1_1> synthesized.
+
+Synthesizing Unit <inverter_6844eee868>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <op_mem_22_20>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <inverter_6844eee868> synthesized.
+
+Synthesizing Unit <logical_799f62af22>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <latency_pipe_5_26>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <logical_799f62af22> synthesized.
+
+Synthesizing Unit <xlregister_1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        d_width = 20
+        init_value = "00000000000000000000"
+    Summary:
+	no macro.
+Unit <xlregister_1> synthesized.
+
+Synthesizing Unit <synth_reg_w_init_2>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 20
+        init_index = 2
+        init_value = "00000000000000000000"
+        latency = 1
+    Summary:
+	no macro.
+Unit <synth_reg_w_init_2> synthesized.
+
+Synthesizing Unit <single_reg_w_init_2>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 20
+        init_index = 2
+        init_value = "00000000000000000000"
+    Set property "syn_black_box = true" for instance <fd_prim_array[0].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[1].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[2].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[3].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[4].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[5].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[6].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[7].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[8].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[9].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[10].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[11].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[12].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[13].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[14].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[15].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[16].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[17].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[18].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[19].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Summary:
+	no macro.
+Unit <single_reg_w_init_2> synthesized.
+
+Synthesizing Unit <xlslice_1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        new_msb = 31
+        new_lsb = 12
+        x_width = 32
+        y_width = 20
+WARNING:Xst:647 - Input <x<11:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <xlslice_1> synthesized.
+
+Synthesizing Unit <xlslice_2>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        new_msb = 12
+        new_lsb = 12
+        x_width = 13
+        y_width = 1
+WARNING:Xst:647 - Input <x<11:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <xlslice_2> synthesized.
+
+Synthesizing Unit <peaksensing_3d_entity_dc4d47ad19>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+    Summary:
+	no macro.
+Unit <peaksensing_3d_entity_dc4d47ad19> synthesized.
+
+Synthesizing Unit <delay_465b2eaa2d>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <op_mem_0_8_24>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <delay_465b2eaa2d> synthesized.
+
+Synthesizing Unit <xldelay_2>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 1
+        latency = 1
+        reg_retiming = 0
+        reset = 0
+WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <xldelay_2> synthesized.
+
+Synthesizing Unit <xldelay_3>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 14
+        latency = 2
+        reg_retiming = 0
+        reset = 0
+WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <xldelay_3> synthesized.
+
+Synthesizing Unit <synth_reg_4>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 14
+        latency = 2
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <synth_reg_4> synthesized.
+
+Synthesizing Unit <srl17e_4>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 14
+        latency = 2
+    Set property "syn_black_box = true" for instance <reg_array[0].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[0].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[1].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[1].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[2].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[2].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[3].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[3].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[4].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[4].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[5].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[5].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[6].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[6].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[7].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[7].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[8].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[8].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[9].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[9].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[10].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[10].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[11].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[11].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[12].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[12].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[13].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[13].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Summary:
+	no macro.
+Unit <srl17e_4> synthesized.
+
+Synthesizing Unit <xlregister_2>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        d_width = 14
+        init_value = "00000000000000"
+    Summary:
+	no macro.
+Unit <xlregister_2> synthesized.
+
+Synthesizing Unit <synth_reg_w_init_3>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 14
+        init_index = 2
+        init_value = "00000000000000"
+        latency = 1
+    Summary:
+	no macro.
+Unit <synth_reg_w_init_3> synthesized.
+
+Synthesizing Unit <single_reg_w_init_3>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 14
+        init_index = 2
+        init_value = "00000000000000"
+    Set property "syn_black_box = true" for instance <fd_prim_array[0].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[1].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[2].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[3].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[4].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[5].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[6].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[7].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[8].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[9].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[10].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[11].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[12].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <fd_prim_array[13].bit_is_0.fdre_comp>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Summary:
+	no macro.
+Unit <single_reg_w_init_3> synthesized.
+
+Synthesizing Unit <relational_ad15df22d8>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ce> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 14-bit comparator greater for signal <result_18_3_rel> created at line 3369
+    Summary:
+	inferred   1 Comparator(s).
+Unit <relational_ad15df22d8> synthesized.
+
+Synthesizing Unit <sigdetect_10d_entity_019b4552c7>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+    Summary:
+	no macro.
+Unit <sigdetect_10d_entity_019b4552c7> synthesized.
+
+Synthesizing Unit <xlcounter_free_DKver1_2>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        core_name0 = "cntr_11_0_81606633e3bc7b5b"
+        op_width = 32
+        op_arith = 1
+    Set property "syn_black_box = true" for instance <comp1.core_instance1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+WARNING:Xst:647 - Input <up> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <load> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <din> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <xlcounter_free_DKver1_2> synthesized.
+
+Synthesizing Unit <xldelay_4>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 1
+        latency = 2
+        reg_retiming = 0
+        reset = 0
+WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <xldelay_4> synthesized.
+
+Synthesizing Unit <synth_reg_5>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 1
+        latency = 2
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <synth_reg_5> synthesized.
+
+Synthesizing Unit <srl17e_5>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 1
+        latency = 2
+    Set property "syn_black_box = true" for instance <reg_array[0].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[0].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Summary:
+	no macro.
+Unit <srl17e_5> synthesized.
+
+Synthesizing Unit <xldelay_5>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 14
+        latency = 10
+        reg_retiming = 0
+        reset = 0
+WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <xldelay_5> synthesized.
+
+Synthesizing Unit <synth_reg_6>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 14
+        latency = 10
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <synth_reg_6> synthesized.
+
+Synthesizing Unit <srl17e_6>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        width = 14
+        latency = 10
+    Set property "syn_black_box = true" for instance <reg_array[0].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[0].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[1].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[1].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[2].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[2].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[3].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[3].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[4].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[4].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[5].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[5].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[6].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[6].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[7].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[7].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[8].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[8].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[9].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[9].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[10].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[10].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[11].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[11].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[12].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[12].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[13].srl16_used.u1>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Set property "syn_black_box = true" for instance <reg_array[13].fde_used.u2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+    Summary:
+	no macro.
+Unit <srl17e_6> synthesized.
+
+Synthesizing Unit <logical_a6d07705dd>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ce> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <logical_a6d07705dd> synthesized.
+
+Synthesizing Unit <logical_954ee29728>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ce> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <logical_954ee29728> synthesized.
+
+Synthesizing Unit <relational_12d5ac26f1>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <op_mem_32_22>.
+    Found 14-bit comparator greater for signal <result_18_3_rel> created at line 3476
+    Summary:
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <relational_12d5ac26f1> synthesized.
+
+Synthesizing Unit <relational_8d1942da8e>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <op_mem_32_22>.
+    Found 32-bit comparator greater for signal <result_16_3_rel> created at line 3524
+    Summary:
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <relational_8d1942da8e> synthesized.
+
+Synthesizing Unit <sigmux_1d_entity_7b192397cd>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+    Summary:
+	no macro.
+Unit <sigmux_1d_entity_7b192397cd> synthesized.
+
+Synthesizing Unit <xlcounter_free_DKver1_3>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        core_name0 = "cntr_11_0_80e8f2a7fd3ba205"
+        op_width = 11
+        op_arith = 2
+    Set property "syn_black_box = true" for instance <comp2.core_instance2>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+WARNING:Xst:647 - Input <up> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <load> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <din> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <xlcounter_free_DKver1_3> synthesized.
+
+Synthesizing Unit <mux_4832b2866e>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 14-bit register for signal <pipe_16_22(0)>.
+    Summary:
+	inferred  14 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <mux_4832b2866e> synthesized.
+
+Synthesizing Unit <sigseparation1_1d_entity_9e1277b02d>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+    Summary:
+	no macro.
+Unit <sigseparation1_1d_entity_9e1277b02d> synthesized.
+
+Synthesizing Unit <concat_104f8d24fb>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ce> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <clr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <concat_104f8d24fb> synthesized.
+
+Synthesizing Unit <xlconvert_3>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        din_width = 14
+        din_bin_pt = 0
+        din_arith = 2
+        dout_width = 14
+        dout_bin_pt = 0
+        dout_arith = 1
+        en_width = 1
+        en_bin_pt = 0
+        en_arith = 1
+        bool_conversion = 0
+        latency = 1
+        quantization = 2
+        overflow = 1
+    Summary:
+	no macro.
+Unit <xlconvert_3> synthesized.
+
+Synthesizing Unit <convert_func_call_2>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        din_width = 14
+        din_bin_pt = 0
+        din_arith = 2
+        dout_width = 14
+        dout_bin_pt = 0
+        dout_arith = 1
+        quantization = 2
+        overflow = 1
+    Found 16-bit adder for signal <n0004> created at line 1247.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <convert_func_call_2> synthesized.
+
+Synthesizing Unit <xlcounter_free_DKver1_4>.
+    Related source file is "C:\Users\Robot32-VM\Documents\System Generator\11_Gamma_Simple\0_Timing_Analysis\synth_model\dkver1.vhd".
+        core_name0 = "cntr_11_0_de5346cf0bbfe7ef"
+        op_width = 18
+        op_arith = 1
+    Set property "syn_black_box = true" for instance <comp3.core_instance3>.
+WARNING:Xst:37 - Detected unknown constraint/property "fpga_dont_touch". This constraint/property is not supported by the current software release and will be ignored.
+WARNING:Xst:647 - Input <up> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <load> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <din> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <xlcounter_free_DKver1_4> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 12
+ 16-bit adder                                          : 4
+ 23-bit adder                                          : 4
+ 32-bit adder                                          : 4
+# Registers                                            : 19
+ 1-bit register                                        : 11
+ 14-bit register                                       : 4
+ 32-bit register                                       : 4
+# Comparators                                          : 9
+ 14-bit comparator greater                             : 8
+ 32-bit comparator greater                             : 1
+# Multiplexers                                         : 40
+ 1-bit 2-to-1 multiplexer                              : 32
+ 14-bit 2-to-1 multiplexer                             : 8
+# Xors                                                 : 36
+ 1-bit xor2                                            : 36
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <xlpersistentdff.ngc>.
+Reading core <cntr_11_0_81606633e3bc7b5b.ngc>.
+Reading Secure Unit <blk00000001>.
+Reading core <cntr_11_0_80e8f2a7fd3ba205.ngc>.
+Reading Secure Unit <blk00000001>.
+Reading core <addsb_11_0_c56061fb4dfcdca4.ngc>.
+Reading Secure Unit <blk00000001>.
+Reading core <cntr_11_0_00fd590c4e52f518.ngc>.
+Reading Secure Unit <blk00000001>.
+Reading core <cntr_11_0_de5346cf0bbfe7ef.ngc>.
+Reading Secure Unit <blk00000001>.
+Loading core <xlpersistentdff> for timing and area information for instance <persistentdff_inst>.
+Loading core <cntr_11_0_81606633e3bc7b5b> for timing and area information for instance <comp1.core_instance1>.
+Loading core <cntr_11_0_80e8f2a7fd3ba205> for timing and area information for instance <comp2.core_instance2>.
+Loading core <addsb_11_0_c56061fb4dfcdca4> for timing and area information for instance <comp0.core_instance0>.
+Loading core <cntr_11_0_00fd590c4e52f518> for timing and area information for instance <comp0.core_instance0>.
+Loading core <cntr_11_0_de5346cf0bbfe7ef> for timing and area information for instance <comp3.core_instance3>.
+
+Synthesizing (advanced) Unit <accum_4f86e0e3cd>.
+The following registers are absorbed into accumulator <accum_reg_41_23>: 1 register on signal <accum_reg_41_23>.
+Unit <accum_4f86e0e3cd> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 8
+ 14-bit adder                                          : 4
+ 23-bit adder                                          : 4
+# Accumulators                                         : 4
+ 32-bit up accumulator                                 : 4
+# Registers                                            : 520
+ Flip-Flops                                            : 520
+# Comparators                                          : 9
+ 14-bit comparator greater                             : 8
+ 32-bit comparator greater                             : 1
+# Multiplexers                                         : 40
+ 1-bit 2-to-1 multiplexer                              : 32
+ 14-bit 2-to-1 multiplexer                             : 8
+# Xors                                                 : 36
+ 1-bit xor2                                            : 36
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <dkver1_cw> ...
+
+Optimizing unit <srl17e_6> ...
+
+Optimizing unit <srl17e_1> ...
+
+Optimizing unit <srl17e_2> ...
+
+Optimizing unit <single_reg_w_init_2> ...
+
+Optimizing unit <single_reg_w_init_3> ...
+
+Optimizing unit <srl17e_4> ...
+
+Optimizing unit <dkver1> ...
+
+Optimizing unit <sigdetect_10d_entity_019b4552c7> ...
+
+Optimizing unit <mux_4832b2866e> ...
+
+Optimizing unit <xladdsub_DKver1> ...
+
+Optimizing unit <offsetctrl_3d_entity_dcaf28bbd4> ...
+WARNING:Xst:1710 - FF/Latch <default_clock_driver_dkver1_x0/xlclockdriver_1/clr_reg/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[0].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register3/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register2/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register1/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <default_clock_driver_dkver1_x0/xlclockdriver_1/clr_reg/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[0].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register3/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register2/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register1/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <default_clock_driver_dkver1_x0/xlclockdriver_1/clr_reg/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[0].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register3/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register2/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register1/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+WARNING:Xst:1710 - FF/Latch <default_clock_driver_dkver1_x0/xlclockdriver_1/clr_reg/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[0].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register3/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register2/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register1/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <default_clock_driver_dkver1_x0/xlclockdriver_1/clr_reg/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[0].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register3/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register2/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register1/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <default_clock_driver_dkver1_x0/xlclockdriver_1/clr_reg/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[0].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register3/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register2/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register1/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+Annotating constraints using XCF file 'dkver1_cw.xcf'
+XCF parsing done.
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block dkver1_cw, actual ratio is 1.
+WARNING:Xst:1710 - FF/Latch <default_clock_driver_dkver1_x0/xlclockdriver_1/clr_reg/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[0].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register3/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register2/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register1/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <default_clock_driver_dkver1_x0/xlclockdriver_1/clr_reg/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[0].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register3/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register2/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register1/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <default_clock_driver_dkver1_x0/xlclockdriver_1/clr_reg/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[0].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register3/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register2/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register1/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 648
+ Flip-Flops                                            : 648
+
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <default_clock_driver_dkver1_x0/xlclockdriver_1/clr_reg/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[0].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register3/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register2/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register1/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <default_clock_driver_dkver1_x0/xlclockdriver_1/clr_reg/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[0].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register3/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register2/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register1/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp/fd_prim_array[13].bit_is_0.fdre_comp> (without init value) has a constant value of 0 in block <dkver1_cw>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : dkver1_cw.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 1189
+#      GND                         : 5
+#      INV                         : 11
+#      LUT1                        : 66
+#      LUT2                        : 220
+#      LUT3                        : 59
+#      LUT4                        : 118
+#      LUT5                        : 10
+#      LUT6                        : 62
+#      MUXCY                       : 343
+#      VCC                         : 9
+#      XORCY                       : 286
+# FlipFlops/Latches                : 807
+#      FD                          : 4
+#      FDE                         : 464
+#      FDRE                        : 339
+# Shift Registers                  : 116
+#      SRL16E                      : 116
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 267
+#      IBUF                        : 81
+#      OBUF                        : 186
+# Others                           : 1
+#      TIMESPEC                    : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx150fgg484-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             807  out of  184304     0%  
+ Number of Slice LUTs:                  662  out of  92152     0%  
+    Number used as Logic:               546  out of  92152     0%  
+    Number used as Memory:              116  out of  21680     0%  
+       Number used as SRL:              116
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   1131
+   Number with an unused Flip Flop:     324  out of   1131    28%  
+   Number with an unused LUT:           469  out of   1131    41%  
+   Number of fully used LUT-FF pairs:   338  out of   1131    29%  
+   Number of unique control sets:        10
+
+IO Utilization: 
+ Number of IOs:                         269
+ Number of bonded IOBs:                 268  out of    338    79%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 923   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 5.729ns (Maximum Frequency: 174.558MHz)
+   Minimum input arrival time before clock: 4.972ns
+   Maximum output required time after clock: 5.023ns
+   Maximum combinational path delay: No path found
+
+=========================================================================
+Timing constraint: TS_clk_33621d2a = PERIOD TIMEGRP "clk_33621d2a" 9 nS HIGH 4.500 nS
+  Clock period: 5.729ns (frequency: 174.558MHz)
+  Total number of paths / destination ports: 16531 / 1293
+  Number of failed paths / ports: 0 (0.00%) / 0 (0.00%)
+-------------------------------------------------------------------------
+Slack:                  3.271ns
+  Source:               dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub3/comp0.core_instance0/blk00000001/blk00000031 (FF)
+  Destination:          dkver1_x0/sigdetect_10d_019b4552c7/relational3/op_mem_32_22_0 (FF)
+  Data Path Delay:      5.729ns (Levels of Logic = 12)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 9.000ns
+
+  Data Path: dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub3/comp0.core_instance0/blk00000001/blk00000031 (FF) to dkver1_x0/sigdetect_10d_019b4552c7/relational3/op_mem_32_22_0 (FF)
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     SEC:C->out            2   0.525   1.181  sec_inst (sec_net)
+     end scope: 'dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub3/comp0.core_instance0/blk00000001:S(15)'
+     end scope: 'dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub3/comp0.core_instance0:s(15)'
+     LUT6:I0->O           13   0.254   1.528  dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub3/Mmux_core_s[20]_GND_18_o_MUX_33_o12 (dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub3/Mmux_core_s[20]_GND_18_o_MUX_33_o11)
+     LUT6:I1->O            3   0.254   1.042  dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub3/Mmux_conv_s15 (dkver1_x0/addsub3_s_net_x1(0))
+     LUT4:I0->O            1   0.254   0.000  dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_lut(0) (dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_lut(0))
+     MUXCY:S->O            1   0.215   0.000  dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(0) (dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(0))
+     MUXCY:CI->O           1   0.023   0.000  dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(1) (dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(1))
+     MUXCY:CI->O           1   0.023   0.000  dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(2) (dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(2))
+     MUXCY:CI->O           1   0.023   0.000  dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(3) (dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(3))
+     MUXCY:CI->O           1   0.023   0.000  dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(4) (dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(4))
+     MUXCY:CI->O           1   0.023   0.000  dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(5) (dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(5))
+     MUXCY:CI->O           1   0.023   0.000  dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(6) (dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(6))
+     MUXCY:CI->O           1   0.262   0.000  dkver1_x0/sigdetect_10d_019b4552c7/relational3/Mcompar_result_18_3_rel_cy(6)_inv1_cy (dkver1_x0/sigdetect_10d_019b4552c7/relational3/result_18_3_rel)
+     FDE:D                     0.074          dkver1_x0/sigdetect_10d_019b4552c7/relational3/op_mem_32_22_0
+    ----------------------------------------
+    Total                      5.729ns (1.978ns logic, 3.751ns route)
+                                       (34.5% logic, 65.5% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    5.729|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.06 secs
+ 
+--> 
+
+Total memory usage is 195588 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  241 (   0 filtered)
+Number of infos    :    6 (   0 filtered)
+

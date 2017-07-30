@@ -1,0 +1,935 @@
+Release 14.7 Map P.20131013 (nt)
+Xilinx Mapping Report File for Design 'dkver1_cw'
+
+Design Information
+------------------
+Command Line   : map -o dkver1_cw_map.ncd -intstyle xflow -detail
+-register_duplication -timing -ol high dkver1_cw.ngd dkver1_cw.pcf 
+Target Device  : xc6slx150
+Target Package : fgg484
+Target Speed   : -2
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Tue Apr 04 18:17:53 2017
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    0
+Slice Logic Utilization:
+  Number of Slice Registers:                   805 out of 184,304    1%
+    Number used as Flip Flops:                 805
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                        557 out of  92,152    1%
+    Number used as logic:                      457 out of  92,152    1%
+      Number using O6 output only:             294
+      Number using O5 output only:              66
+      Number using O5 and O6:                   97
+      Number used as ROM:                        0
+    Number used as Memory:                      60 out of  21,680    1%
+      Number used as Dual Port RAM:              0
+      Number used as Single Port RAM:            0
+      Number used as Shift Register:            60
+        Number using O6 output only:             4
+        Number using O5 output only:             0
+        Number using O5 and O6:                 56
+    Number used exclusively as route-thrus:     40
+      Number with same-slice register load:     36
+      Number with same-slice carry load:         4
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                   242 out of  23,038    1%
+  Number of MUXCYs used:                       380 out of  46,076    1%
+  Number of LUT Flip Flop pairs used:          805
+    Number with an unused Flip Flop:           127 out of     805   15%
+    Number with an unused LUT:                 248 out of     805   30%
+    Number of fully used LUT-FF pairs:         430 out of     805   53%
+    Number of unique control sets:              12
+    Number of slice register sites lost
+      to control set restrictions:              31 out of 184,304    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                       268 out of     338   79%
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         0 out of     268    0%
+  Number of RAMB8BWERs:                          0 out of     536    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       1 out of      16    6%
+    Number used as BUFGs:                        1
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     0 out of      12    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     586    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     586    0%
+  Number of OLOGIC2/OSERDES2s:                   0 out of     586    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     384    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            0 out of     180    0%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       4    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       6    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                2.81
+
+Peak Memory Usage:  460 MB
+Total REAL time to MAP completion:  39 secs 
+Total CPU time to MAP completion:   39 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current
+version of Xilinx tools will continue to function, but you no longer qualify for
+Xilinx software updates or new releases.
+
+Section 3 - Informational
+-------------------------
+INFO:Map:220 - The command line option -timing is automatically supported for
+   this architecture. Therefore, it is not necessary to specify this option.
+INFO:Security:56 - Part 'xc6slx150' is not a WebPack part.
+INFO:LIT:243 - Logical network ce has no load.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Pack:1650 - Map created a placed design.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   2 block(s) removed
+  14 block(s) optimized away
+   1 signal(s) removed
+  66 Block(s) redundant
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block
+"default_clock_driver_dkver1_x0/xlclockdriver_1/clr_reg/latency_gt_0.fd_array[1]
+.reg_comp/fd_prim_array[0].bit_is_0.fdre_comp" (SFF) removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "persistentdff_inst_q" is unused and has been removed.
+ Unused block "persistentdff_inst/q" (FF) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+VCC
+		dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub/comp0.core_instance0/blk00000001/blk
+00000002
+VCC
+		dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub1/comp0.core_instance0/blk00000001/bl
+k00000002
+VCC
+		dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub2/comp0.core_instance0/blk00000001/bl
+k00000002
+VCC
+		dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub3/comp0.core_instance0/blk00000001/bl
+k00000002
+VCC
+		dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001/bl
+k00000002
+GND
+		dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001/bl
+k00000003
+VCC
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000002
+GND
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000003
+VCC
+		dkver1_x0/sigmux_1d_7b192397cd/counter/comp2.core_instance2/blk00000001/blk000
+00002
+GND
+		dkver1_x0/sigmux_1d_7b192397cd/counter/comp2.core_instance2/blk00000001/blk000
+00003
+VCC
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk00000002
+GND
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk00000003
+
+Redundant Block(s):
+TYPE 		BLOCK
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000063
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000064
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000065
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000066
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000067
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000068
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000069
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k0000006a
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k0000006b
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k0000006c
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k0000006d
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k0000006e
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k0000006f
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000070
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000071
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000072
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000073
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000074
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000075
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000076
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000077
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000078
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000079
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k0000007a
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k0000007b
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k0000007c
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k0000007d
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k0000007e
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k0000007f
+LUT1
+		dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001/bl
+k00000080
+LUT1
+		dkver1_x0/sigmux_1d_7b192397cd/counter/comp2.core_instance2/blk00000001/blk000
+00024
+LUT1
+		dkver1_x0/sigmux_1d_7b192397cd/counter/comp2.core_instance2/blk00000001/blk000
+00025
+LUT1
+		dkver1_x0/sigmux_1d_7b192397cd/counter/comp2.core_instance2/blk00000001/blk000
+00026
+LUT1
+		dkver1_x0/sigmux_1d_7b192397cd/counter/comp2.core_instance2/blk00000001/blk000
+00027
+LUT1
+		dkver1_x0/sigmux_1d_7b192397cd/counter/comp2.core_instance2/blk00000001/blk000
+00028
+LUT1
+		dkver1_x0/sigmux_1d_7b192397cd/counter/comp2.core_instance2/blk00000001/blk000
+00029
+LUT1
+		dkver1_x0/sigmux_1d_7b192397cd/counter/comp2.core_instance2/blk00000001/blk000
+0002a
+LUT1
+		dkver1_x0/sigmux_1d_7b192397cd/counter/comp2.core_instance2/blk00000001/blk000
+0002b
+LUT1
+		dkver1_x0/sigmux_1d_7b192397cd/counter/comp2.core_instance2/blk00000001/blk000
+0002c
+LUT1
+		dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001/bl
+k0000002a
+LUT1
+		dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001/bl
+k0000002b
+LUT1
+		dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001/bl
+k0000002c
+LUT1
+		dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001/bl
+k0000002d
+LUT1
+		dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001/bl
+k0000002e
+LUT1
+		dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001/bl
+k0000002f
+LUT1
+		dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001/bl
+k00000030
+LUT1
+		dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001/bl
+k00000031
+LUT1
+		dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001/bl
+k00000032
+LUT1
+		dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001/bl
+k00000033
+LUT1
+		dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001/bl
+k00000034
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk00000039
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk0000003a
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk0000003b
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk0000003c
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk0000003d
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk0000003e
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk0000003f
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk00000040
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk00000041
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk00000042
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk00000043
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk00000044
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk00000045
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk00000046
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk00000047
+LUT1
+		dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk0000000
+1/blk00000048
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| clk                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl1_stretch21_14(0)              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl1_stretch21_14(1)              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl1_stretch21_14(2)              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl1_stretch21_14(3)              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl1_stretch21_14(4)              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl1_stretch21_14(5)              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl1_stretch21_14(6)              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl1_stretch21_14(7)              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(0)             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(1)             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(2)             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(3)             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(4)             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(5)             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(6)             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(7)             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(8)             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(9)             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(10)            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(11)            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(12)            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl2_threshold13_0(13)            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl3_offseten29                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl4_offsetrst30                  | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| ctrl5_sim31                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(0)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(1)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(2)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(3)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(4)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(5)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(6)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(7)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(8)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(9)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(10)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(11)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(12)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain1(13)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(0)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(1)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(2)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(3)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(4)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(5)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(6)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(7)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(8)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(9)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(10)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(11)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(12)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain2(13)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(0)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(1)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(2)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(3)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(4)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(5)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(6)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(7)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(8)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(9)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(10)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(11)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(12)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain3(13)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(0)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(1)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(2)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(3)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(4)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(5)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(6)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(7)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(8)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(9)                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(10)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(11)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(12)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| datain4(13)                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| peakout1(0)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout1(1)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout1(2)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout1(3)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout1(4)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout1(5)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout1(6)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout1(7)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout1(8)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout1(9)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout1(10)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout1(11)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout1(12)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout1(13)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(0)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(1)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(2)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(3)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(4)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(5)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(6)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(7)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(8)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(9)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(10)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(11)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(12)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout2(13)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(0)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(1)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(2)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(3)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(4)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(5)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(6)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(7)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(8)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(9)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(10)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(11)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(12)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout3(13)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(0)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(1)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(2)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(3)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(4)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(5)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(6)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(7)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(8)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(9)                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(10)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(11)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(12)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakout4(13)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| peakvalid                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(0)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(1)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(2)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(3)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(4)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(5)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(6)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(7)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(8)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(9)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(10)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(11)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(12)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(13)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(14)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(15)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(16)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(17)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(18)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(19)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(20)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(21)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(22)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(23)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(24)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(25)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(26)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(27)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(28)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(29)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(30)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout1(31)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(0)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(1)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(2)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(3)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(4)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(5)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(6)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(7)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(8)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(9)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(10)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(11)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(12)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(13)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(14)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(15)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(16)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(17)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(18)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(19)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(20)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(21)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(22)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(23)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(24)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(25)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(26)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(27)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(28)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(29)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(30)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout2(31)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(0)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(1)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(2)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(3)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(4)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(5)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(6)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(7)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(8)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(9)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(10)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(11)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(12)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(13)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(14)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(15)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(16)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(17)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(18)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(19)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(20)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(21)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(22)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(23)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(24)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(25)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(26)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(27)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(28)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(29)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(30)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout3(31)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(0)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(1)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(2)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(3)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(4)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(5)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(6)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(7)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(8)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(9)                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(10)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(11)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(12)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(13)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(14)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(15)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(16)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(17)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(18)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(19)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(20)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(21)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(22)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(23)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(24)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(25)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(26)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(27)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(28)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(29)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(30)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulseout4(31)                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pulsevalid                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+
+Section 12 - Control Set Information
+------------------------------------
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Clock Signal | Reset Signal                                                | Set Signal | Enable Signal                                                  | Slice Load Count | Bel Load Count |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| clk_BUFGP    |                                                             |            |                                                                | 95               | 394            |
+| clk_BUFGP    |                                                             |            | GLOBAL_LOGIC1                                                  | 15               | 116            |
+| clk_BUFGP    |                                                             |            | dkver1_x0/convert4_dout_net_x1                                 | 24               | 84             |
+| clk_BUFGP    |                                                             |            | dkver1_x0/sigseparation1_1d_9e1277b02d/delay5/op_mem_0_8_24    | 5                | 18             |
+| clk_BUFGP    | ctrl4_offsetrst30_IBUF                                      |            | ctrl3_offseten29_IBUF                                          | 32               | 128            |
+| clk_BUFGP    | ctrl4_offsetrst30_IBUF                                      |            | dkver1_x0/offsetctrl_3d_dcaf28bbd4/inverter/op_mem_22_20_0     | 19               | 80             |
+| clk_BUFGP    | ctrl4_offsetrst30_IBUF                                      |            | dkver1_x0/offsetctrl_3d_dcaf28bbd4/logical/latency_pipe_5_26_0 | 4                | 13             |
+| clk_BUFGP    | dkver1_x0/peaksensing_3d_dc4d47ad19/inverter/op_mem_22_20_0 |            | dkver1_x0/peaksensing_3d_dc4d47ad19/register1/internal_ce      | 3                | 14             |
+| clk_BUFGP    | dkver1_x0/peaksensing_3d_dc4d47ad19/inverter/op_mem_22_20_0 |            | dkver1_x0/peaksensing_3d_dc4d47ad19/register2/internal_ce      | 3                | 14             |
+| clk_BUFGP    | dkver1_x0/peaksensing_3d_dc4d47ad19/inverter/op_mem_22_20_0 |            | dkver1_x0/peaksensing_3d_dc4d47ad19/register3/internal_ce      | 2                | 14             |
+| clk_BUFGP    | dkver1_x0/peaksensing_3d_dc4d47ad19/inverter/op_mem_22_20_0 |            | dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/internal_ce    | 2                | 14             |
+| clk_BUFGP    | dkver1_x0/sigdetect_10d_019b4552c7/delay8/op_mem_0_8_24     |            | dkver1_x0/sigdetect_10d_019b4552c7/relational4/op_mem_32_22_0  | 8                | 32             |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Module                                 | Partition | Slices*       | Slice Reg     | LUTs          | LUTRAM        | BRAM/FIFO | DSP48A1 | BUFG  | BUFIO | BUFR  | DCM   | PLL_ADV   | Full Hierarchical Name                                                                                       |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| dkver1_cw/                             |           | 0/274         | 0/805         | 0/557         | 0/60          | 0/0       | 0/0     | 1/1   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw                                                                                                    |
+| +dkver1_x0                             |           | 0/274         | 0/805         | 0/557         | 0/60          | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0                                                                                          |
+| ++delay1                               |           | 0/4           | 0/14          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/delay1                                                                                   |
+| +++srl_delay.synth_reg_srl_inst        |           | 0/4           | 0/14          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/delay1/srl_delay.synth_reg_srl_inst                                                      |
+| ++++partial_one.last_srl17e            |           | 4/4           | 14/14         | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/delay1/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e                              |
+| ++delay2                               |           | 0/4           | 0/14          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/delay2                                                                                   |
+| +++srl_delay.synth_reg_srl_inst        |           | 0/4           | 0/14          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/delay2/srl_delay.synth_reg_srl_inst                                                      |
+| ++++partial_one.last_srl17e            |           | 4/4           | 14/14         | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/delay2/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e                              |
+| ++delay3                               |           | 0/4           | 0/14          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/delay3                                                                                   |
+| +++srl_delay.synth_reg_srl_inst        |           | 0/4           | 0/14          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/delay3/srl_delay.synth_reg_srl_inst                                                      |
+| ++++partial_one.last_srl17e            |           | 4/4           | 14/14         | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/delay3/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e                              |
+| ++delay4                               |           | 0/4           | 0/14          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/delay4                                                                                   |
+| +++srl_delay.synth_reg_srl_inst        |           | 0/4           | 0/14          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/delay4/srl_delay.synth_reg_srl_inst                                                      |
+| ++++partial_one.last_srl17e            |           | 4/4           | 14/14         | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/delay4/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e                              |
+| ++offsetctrl_1d_722b8ff6b9             |           | 0/55          | 0/84          | 0/148         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_1d_722b8ff6b9                                                                 |
+| +++addsub                              |           | 8/14          | 0/21          | 16/37         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub                                                          |
+| ++++comp0.core_instance0               |           | 0/6           | 0/21          | 0/21          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub/comp0.core_instance0                                     |
+| +++++blk00000001                       |           | 6/6           | 21/21         | 21/21         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub/comp0.core_instance0/blk00000001                         |
+| +++addsub1                             |           | 7/13          | 0/21          | 16/37         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub1                                                         |
+| ++++comp0.core_instance0               |           | 0/6           | 0/21          | 0/21          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub1/comp0.core_instance0                                    |
+| +++++blk00000001                       |           | 6/6           | 21/21         | 21/21         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub1/comp0.core_instance0/blk00000001                        |
+| +++addsub2                             |           | 7/13          | 0/21          | 16/37         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub2                                                         |
+| ++++comp0.core_instance0               |           | 0/6           | 0/21          | 0/21          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub2/comp0.core_instance0                                    |
+| +++++blk00000001                       |           | 6/6           | 21/21         | 21/21         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub2/comp0.core_instance0/blk00000001                        |
+| +++addsub3                             |           | 9/15          | 0/21          | 16/37         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub3                                                         |
+| ++++comp0.core_instance0               |           | 0/6           | 0/21          | 0/21          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub3/comp0.core_instance0                                    |
+| +++++blk00000001                       |           | 6/6           | 21/21         | 21/21         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_1d_722b8ff6b9/addsub3/comp0.core_instance0/blk00000001                        |
+| ++offsetctrl_3d_dcaf28bbd4             |           | 0/78          | 0/304         | 0/147         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4                                                                 |
+| +++accumulator                         |           | 8/8           | 32/32         | 32/32         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/accumulator                                                     |
+| +++accumulator1                        |           | 8/8           | 32/32         | 32/32         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/accumulator1                                                    |
+| +++accumulator2                        |           | 8/8           | 32/32         | 32/32         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/accumulator2                                                    |
+| +++accumulator3                        |           | 8/8           | 32/32         | 32/32         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/accumulator3                                                    |
+| +++convert                             |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert                                                         |
+| ++++latency_test.reg                   |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert/latency_test.reg                                        |
+| +++++partial_one.last_srl17e           |           | 5/5           | 20/20         | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert/latency_test.reg/partial_one.last_srl17e                |
+| +++convert1                            |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert1                                                        |
+| ++++latency_test.reg                   |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert1/latency_test.reg                                       |
+| +++++partial_one.last_srl17e           |           | 5/5           | 20/20         | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert1/latency_test.reg/partial_one.last_srl17e               |
+| +++convert2                            |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert2                                                        |
+| ++++latency_test.reg                   |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert2/latency_test.reg                                       |
+| +++++partial_one.last_srl17e           |           | 5/5           | 20/20         | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert2/latency_test.reg/partial_one.last_srl17e               |
+| +++convert3                            |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert3                                                        |
+| ++++latency_test.reg                   |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert3/latency_test.reg                                       |
+| +++++partial_one.last_srl17e           |           | 5/5           | 20/20         | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert3/latency_test.reg/partial_one.last_srl17e               |
+| +++convert4                            |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert4                                                        |
+| ++++latency_test.reg                   |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert4/latency_test.reg                                       |
+| +++++partial_one.last_srl17e           |           | 1/1           | 1/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/convert4/latency_test.reg/partial_one.last_srl17e               |
+| +++counter                             |           | 0/4           | 0/13          | 0/13          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter                                                         |
+| ++++comp0.core_instance0               |           | 0/4           | 0/13          | 0/13          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0                                    |
+| +++++blk00000001                       |           | 4/4           | 13/13         | 13/13         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/counter/comp0.core_instance0/blk00000001                        |
+| +++inverter                            |           | 1/1           | 1/1           | 1/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/inverter                                                        |
+| +++logical                             |           | 1/1           | 1/1           | 1/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/logical                                                         |
+| +++register1                           |           | 0/4           | 0/20          | 0/4           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/register1                                                       |
+| ++++synth_reg_inst                     |           | 0/4           | 0/20          | 0/4           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/register1/synth_reg_inst                                        |
+| +++++latency_gt_0.fd_array[1].reg_comp |           | 4/4           | 20/20         | 4/4           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/register1/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp      |
+| +++register2                           |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/register2                                                       |
+| ++++synth_reg_inst                     |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/register2/synth_reg_inst                                        |
+| +++++latency_gt_0.fd_array[1].reg_comp |           | 5/5           | 20/20         | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/register2/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp      |
+| +++register3                           |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/register3                                                       |
+| ++++synth_reg_inst                     |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/register3/synth_reg_inst                                        |
+| +++++latency_gt_0.fd_array[1].reg_comp |           | 5/5           | 20/20         | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/register3/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp      |
+| +++register_x0                         |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/register_x0                                                     |
+| ++++synth_reg_inst                     |           | 0/5           | 0/20          | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/register_x0/synth_reg_inst                                      |
+| +++++latency_gt_0.fd_array[1].reg_comp |           | 5/5           | 20/20         | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/offsetctrl_3d_dcaf28bbd4/register_x0/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp    |
+| ++peaksensing_3d_dc4d47ad19            |           | 0/35          | 0/115         | 0/74          | 0/28          | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19                                                                |
+| +++delay                               |           | 1/1           | 1/1           | 1/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay                                                          |
+| +++delay1                              |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay1                                                         |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay1/srl_delay.synth_reg_srl_inst                            |
+| +++++partial_one.last_srl17e           |           | 1/1           | 1/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay1/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e    |
+| +++delay2                              |           | 0/3           | 0/14          | 0/4           | 0/4           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay2                                                         |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/3           | 0/14          | 0/4           | 0/4           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay2/srl_delay.synth_reg_srl_inst                            |
+| +++++partial_one.last_srl17e           |           | 3/3           | 14/14         | 4/4           | 4/4           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay2/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e    |
+| +++delay3                              |           | 0/3           | 0/14          | 0/8           | 0/8           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay3                                                         |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/3           | 0/14          | 0/8           | 0/8           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay3/srl_delay.synth_reg_srl_inst                            |
+| +++++partial_one.last_srl17e           |           | 3/3           | 14/14         | 8/8           | 8/8           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay3/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e    |
+| +++delay4                              |           | 0/2           | 0/14          | 0/8           | 0/8           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay4                                                         |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/2           | 0/14          | 0/8           | 0/8           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay4/srl_delay.synth_reg_srl_inst                            |
+| +++++partial_one.last_srl17e           |           | 2/2           | 14/14         | 8/8           | 8/8           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay4/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e    |
+| +++delay5                              |           | 0/2           | 0/14          | 0/8           | 0/8           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay5                                                         |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/2           | 0/14          | 0/8           | 0/8           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay5/srl_delay.synth_reg_srl_inst                            |
+| +++++partial_one.last_srl17e           |           | 2/2           | 14/14         | 8/8           | 8/8           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/delay5/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e    |
+| +++inverter                            |           | 1/1           | 1/1           | 1/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/inverter                                                       |
+| +++register1                           |           | 0/3           | 0/14          | 0/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/register1                                                      |
+| ++++synth_reg_inst                     |           | 0/3           | 0/14          | 0/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/register1/synth_reg_inst                                       |
+| +++++latency_gt_0.fd_array[1].reg_comp |           | 3/3           | 14/14         | 1/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/register1/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp     |
+| +++register2                           |           | 0/3           | 0/14          | 0/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/register2                                                      |
+| ++++synth_reg_inst                     |           | 0/3           | 0/14          | 0/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/register2/synth_reg_inst                                       |
+| +++++latency_gt_0.fd_array[1].reg_comp |           | 3/3           | 14/14         | 1/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/register2/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp     |
+| +++register3                           |           | 0/2           | 0/14          | 0/5           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/register3                                                      |
+| ++++synth_reg_inst                     |           | 0/2           | 0/14          | 0/5           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/register3/synth_reg_inst                                       |
+| +++++latency_gt_0.fd_array[1].reg_comp |           | 2/2           | 14/14         | 5/5           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/register3/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp     |
+| +++register_x0                         |           | 0/2           | 0/14          | 0/5           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0                                                    |
+| ++++synth_reg_inst                     |           | 0/2           | 0/14          | 0/5           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/synth_reg_inst                                     |
+| +++++latency_gt_0.fd_array[1].reg_comp |           | 2/2           | 14/14         | 5/5           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/register_x0/synth_reg_inst/latency_gt_0.fd_array[1].reg_comp   |
+| +++relational                          |           | 3/3           | 0/0           | 8/8           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/relational                                                     |
+| +++relational1                         |           | 3/3           | 0/0           | 8/8           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/relational1                                                    |
+| +++relational2                         |           | 3/3           | 0/0           | 8/8           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/relational2                                                    |
+| +++relational3                         |           | 3/3           | 0/0           | 8/8           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/peaksensing_3d_dc4d47ad19/relational3                                                    |
+| ++sigdetect_10d_019b4552c7             |           | 0/42          | 0/103         | 0/110         | 0/32          | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7                                                                 |
+| +++counter                             |           | 0/8           | 0/32          | 0/32          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/counter                                                         |
+| ++++comp1.core_instance1               |           | 0/8           | 0/32          | 0/32          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1                                    |
+| +++++blk00000001                       |           | 8/8           | 32/32         | 32/32         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/counter/comp1.core_instance1/blk00000001                        |
+| +++delay                               |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay                                                           |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay/srl_delay.synth_reg_srl_inst                              |
+| +++++partial_one.last_srl17e           |           | 1/1           | 1/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e      |
+| +++delay1                              |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay1                                                          |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay1/srl_delay.synth_reg_srl_inst                             |
+| +++++partial_one.last_srl17e           |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay1/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e     |
+| +++delay10                             |           | 0/2           | 0/14          | 0/6           | 0/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay10                                                         |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/2           | 0/14          | 0/6           | 0/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay10/srl_delay.synth_reg_srl_inst                            |
+| +++++partial_one.last_srl17e           |           | 2/2           | 14/14         | 6/6           | 6/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay10/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e    |
+| +++delay11                             |           | 0/2           | 0/14          | 0/6           | 0/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay11                                                         |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/2           | 0/14          | 0/6           | 0/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay11/srl_delay.synth_reg_srl_inst                            |
+| +++++partial_one.last_srl17e           |           | 2/2           | 14/14         | 6/6           | 6/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay11/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e    |
+| +++delay12                             |           | 0/3           | 0/14          | 0/6           | 0/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay12                                                         |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/3           | 0/14          | 0/6           | 0/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay12/srl_delay.synth_reg_srl_inst                            |
+| +++++partial_one.last_srl17e           |           | 3/3           | 14/14         | 6/6           | 6/6           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay12/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e    |
+| +++delay13                             |           | 0/3           | 0/14          | 0/10          | 0/10          | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay13                                                         |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/3           | 0/14          | 0/10          | 0/10          | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay13/srl_delay.synth_reg_srl_inst                            |
+| +++++partial_one.last_srl17e           |           | 3/3           | 14/14         | 10/10         | 10/10         | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay13/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e    |
+| +++delay2                              |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay2                                                          |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay2/srl_delay.synth_reg_srl_inst                             |
+| +++++partial_one.last_srl17e           |           | 1/1           | 1/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay2/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e     |
+| +++delay3                              |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay3                                                          |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay3/srl_delay.synth_reg_srl_inst                             |
+| +++++partial_one.last_srl17e           |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay3/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e     |
+| +++delay4                              |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay4                                                          |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay4/srl_delay.synth_reg_srl_inst                             |
+| +++++partial_one.last_srl17e           |           | 1/1           | 1/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay4/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e     |
+| +++delay5                              |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay5                                                          |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay5/srl_delay.synth_reg_srl_inst                             |
+| +++++partial_one.last_srl17e           |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay5/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e     |
+| +++delay6                              |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay6                                                          |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay6/srl_delay.synth_reg_srl_inst                             |
+| +++++partial_one.last_srl17e           |           | 1/1           | 1/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay6/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e     |
+| +++delay7                              |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay7                                                          |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/1           | 0/1           | 0/1           | 0/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay7/srl_delay.synth_reg_srl_inst                             |
+| +++++partial_one.last_srl17e           |           | 1/1           | 1/1           | 1/1           | 1/1           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay7/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e     |
+| +++delay8                              |           | 1/1           | 1/1           | 1/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay8                                                          |
+| +++delay9                              |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay9                                                          |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay9/srl_delay.synth_reg_srl_inst                             |
+| +++++partial_one.last_srl17e           |           | 1/1           | 1/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/delay9/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e     |
+| +++logical                             |           | 2/2           | 0/0           | 3/3           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/logical                                                         |
+| +++relational                          |           | 2/2           | 1/1           | 8/8           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/relational                                                      |
+| +++relational1                         |           | 2/2           | 1/1           | 8/8           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/relational1                                                     |
+| +++relational2                         |           | 2/2           | 1/1           | 8/8           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/relational2                                                     |
+| +++relational3                         |           | 2/2           | 1/1           | 8/8           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/relational3                                                     |
+| +++relational4                         |           | 4/4           | 1/1           | 10/10         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigdetect_10d_019b4552c7/relational4                                                     |
+| ++sigmux_1d_7b192397cd                 |           | 0/17          | 0/67          | 0/39          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigmux_1d_7b192397cd                                                                     |
+| +++counter                             |           | 0/3           | 0/11          | 0/11          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigmux_1d_7b192397cd/counter                                                             |
+| ++++comp2.core_instance2               |           | 0/3           | 0/11          | 0/11          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigmux_1d_7b192397cd/counter/comp2.core_instance2                                        |
+| +++++blk00000001                       |           | 3/3           | 11/11         | 11/11         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigmux_1d_7b192397cd/counter/comp2.core_instance2/blk00000001                            |
+| +++mux1                                |           | 3/3           | 14/14         | 12/12         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigmux_1d_7b192397cd/mux1                                                                |
+| +++mux2                                |           | 4/4           | 14/14         | 2/2           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigmux_1d_7b192397cd/mux2                                                                |
+| +++mux3                                |           | 3/3           | 14/14         | 12/12         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigmux_1d_7b192397cd/mux3                                                                |
+| +++mux4                                |           | 4/4           | 14/14         | 2/2           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigmux_1d_7b192397cd/mux4                                                                |
+| ++sigseparation1_1d_9e1277b02d         |           | 0/31          | 0/76          | 0/39          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d                                                             |
+| +++convert                             |           | 0/5           | 0/14          | 0/7           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/convert                                                     |
+| ++++latency_test.reg                   |           | 0/5           | 0/14          | 0/7           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/convert/latency_test.reg                                    |
+| +++++partial_one.last_srl17e           |           | 5/5           | 14/14         | 7/7           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/convert/latency_test.reg/partial_one.last_srl17e            |
+| +++convert1                            |           | 0/5           | 0/14          | 0/6           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/convert1                                                    |
+| ++++latency_test.reg                   |           | 0/5           | 0/14          | 0/6           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/convert1/latency_test.reg                                   |
+| +++++partial_one.last_srl17e           |           | 5/5           | 14/14         | 6/6           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/convert1/latency_test.reg/partial_one.last_srl17e           |
+| +++convert2                            |           | 0/4           | 0/14          | 0/6           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/convert2                                                    |
+| ++++latency_test.reg                   |           | 0/4           | 0/14          | 0/6           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/convert2/latency_test.reg                                   |
+| +++++partial_one.last_srl17e           |           | 4/4           | 14/14         | 6/6           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/convert2/latency_test.reg/partial_one.last_srl17e           |
+| +++convert3                            |           | 0/10          | 0/14          | 0/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/convert3                                                    |
+| ++++latency_test.reg                   |           | 0/10          | 0/14          | 0/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/convert3/latency_test.reg                                   |
+| +++++partial_one.last_srl17e           |           | 10/10         | 14/14         | 1/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/convert3/latency_test.reg/partial_one.last_srl17e           |
+| +++counter                             |           | 0/5           | 0/18          | 0/18          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/counter                                                     |
+| ++++comp3.core_instance3               |           | 0/5           | 0/18          | 0/18          | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3                                |
+| +++++blk00000001                       |           | 5/5           | 18/18         | 18/18         | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/counter/comp3.core_instance3/blk00000001                    |
+| +++delay                               |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/delay                                                       |
+| ++++srl_delay.synth_reg_srl_inst       |           | 0/1           | 0/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/delay/srl_delay.synth_reg_srl_inst                          |
+| +++++partial_one.last_srl17e           |           | 1/1           | 1/1           | 0/0           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/delay/srl_delay.synth_reg_srl_inst/partial_one.last_srl17e  |
+| +++delay5                              |           | 1/1           | 1/1           | 1/1           | 0/0           | 0/0       | 0/0     | 0/0   | 0/0   | 0/0   | 0/0   | 0/0       | dkver1_cw/dkver1_x0/sigseparation1_1d_9e1277b02d/delay5                                                      |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+* Slices can be packed with basic elements from multiple hierarchies.
+  Therefore, a slice will be counted in every hierarchical module
+  that each of its packed basic elements belong to.
+** For each column, there are two numbers reported <A>/<B>.
+   <A> is the number of elements that belong to that specific hierarchical module.
+   <B> is the total number of elements from that hierarchical module and any lower level
+   hierarchical modules below.
+*** The LUTRAM column counts all LUTs used as memory including RAM, ROM, and shift registers.

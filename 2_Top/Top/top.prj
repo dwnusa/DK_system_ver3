@@ -1,0 +1,8 @@
+vhdl work "ipcore_dir/clkgen.vhd"
+vhdl work "ipcore_dir/fifo.vhd"
+vhdl work "ipcore_dir/input_fifo.vhd"
+vhdl work "ipcore_dir/filter.vhd"
+vhdl work "okLibrary.vhd"
+vhdl work "Filter_control.vhd"
+vhdl work "top.vhd"
+verilog work "../../1_HDL_Netlist/dkver1_cw_bb.v"

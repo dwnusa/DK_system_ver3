@@ -1,0 +1,64 @@
+Release 14.7 ngdbuild P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: c:\xilinx\14.7\ise_ds\ise\bin\nt\unwrapped\ngdbuild.exe -p
+xc6slx150-2fgg484 -nt timestamp -intstyle xflow
+C:\Users\Robot32-VM\Documents\System
+Generator\11_Gamma_Simple\0_Timing_Analysis\xflow/dkver1_cw.ngc dkver1_cw.ngd
+
+Reading NGO file "C:/Users/Robot32-VM/Documents/System
+Generator/11_Gamma_Simple/0_Timing_Analysis/xflow/dkver1_cw.ngc" ...
+Loading design module "C:/Users/Robot32-VM/Documents/System
+Generator/11_Gamma_Simple/0_Timing_Analysis/xflow/xlpersistentdff.ngc"...
+Loading design module "C:/Users/Robot32-VM/Documents/System
+Generator/11_Gamma_Simple/0_Timing_Analysis/xflow/cntr_11_0_81606633e3bc7b5b.ngc
+"...
+Loading design module "C:/Users/Robot32-VM/Documents/System
+Generator/11_Gamma_Simple/0_Timing_Analysis/xflow/cntr_11_0_80e8f2a7fd3ba205.ngc
+"...
+Loading design module "C:/Users/Robot32-VM/Documents/System
+Generator/11_Gamma_Simple/0_Timing_Analysis/xflow/addsb_11_0_c56061fb4dfcdca4.ng
+c"...
+Loading design module "C:/Users/Robot32-VM/Documents/System
+Generator/11_Gamma_Simple/0_Timing_Analysis/xflow/cntr_11_0_00fd590c4e52f518.ngc
+"...
+Loading design module "C:/Users/Robot32-VM/Documents/System
+Generator/11_Gamma_Simple/0_Timing_Analysis/xflow/cntr_11_0_de5346cf0bbfe7ef.ngc
+"...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "dkver1_cw.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+WARNING:NgdBuild:1345 - The constraint <TIMESPEC TS_clk_33621d2a = PERIOD
+   "clk_33621d2a" 9000.000000 pS HIGH 50.000000 %;> is overridden by the
+   constraint <TIMESPEC "TS_clk_33621d2a" = PERIOD "clk_33621d2a" 9.0 ns HIGH 50
+   %;> [dkver1_cw.ucf(5)]. The overriden constraint usually comes from the input
+   netlist or ncf files. Please set XIL_NGDBUILD_CONSTR_OVERRIDE_ERROR to
+   promote this message to an error.
+Done...
+
+Checking expanded design ...
+WARNING:NgdBuild:443 - SFF primitive
+   'default_clock_driver_dkver1_x0/xlclockdriver_1/clr_reg/latency_gt_0.fd_array
+   [1].reg_comp/fd_prim_array[0].bit_is_0.fdre_comp' has unconnected output pin
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   2
+
+Total memory usage is 124804 kilobytes
+
+Writing NGD file "dkver1_cw.ngd" ...
+Total REAL time to NGDBUILD completion:  2 sec
+Total CPU time to NGDBUILD completion:   2 sec
+
+Writing NGDBUILD log file "dkver1_cw.bld"...

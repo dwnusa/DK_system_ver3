@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver2\2_Top\Top\top.ncd
+OUTFILE=D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver2\2_Top\Top\top.bit
+FAMILY=Spartan6
+PART=xc6slx150-2fgg484
+WORKINGDIR=D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver2\2_Top\Top
+LICENSE=ISE
+USER_INFO=210731706_1777491943_210559937_444

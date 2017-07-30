@@ -1,0 +1,1 @@
+C:/Xilinx/14.7/ISE_DS/ISE/sysgen/bin/nt/saferun.exe -- c:/xilinx/14.7/ise_ds/ise//bin/nt/xst.exe -ifn xst_dkver1.scr -ofn dkver1_cw.syr

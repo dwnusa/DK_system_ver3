@@ -1,0 +1,4 @@
+{
+  'addsub' => 'SELECT Adder_Subtracter spartan6 Xilinx,_Inc. 11.0',
+  'counter' => 'SELECT Binary_Counter spartan6 Xilinx,_Inc. 11.0'
+}

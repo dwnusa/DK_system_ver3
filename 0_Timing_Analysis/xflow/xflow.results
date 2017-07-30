@@ -1,0 +1,31 @@
+Release 14.7 Xflow P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+xflow.exe -p xc6slx150-2fgg484 -implement trace.opt dkver1_cw  
+
+Using Flow File: C:\Users\Robot32-VM\Documents\System
+Generator\11_Gamma_Simple\0_Timing_Analysis\xflow/fpga.flw 
+Using Option File(s): 
+ C:\Users\Robot32-VM\Documents\System
+Generator\11_Gamma_Simple\0_Timing_Analysis\xflow/trace.opt 
+
+Creating Script File ... 
+
+#----------------------------------------------#
+# Starting program post_par_trce
+# trce -v 150 -intstyle xflow -xml dkver1_cw.twx -o dkver1_cw.twr dkver1_cw.ncd
+dkver1_cw.pcf 
+#----------------------------------------------#
+Loading device for application Rf_Device from file '6slx150.nph' in environment
+c:\xilinx\14.7\ise_ds\ise\.
+   "dkver1_cw" is an NCD, version 3.2, device xc6slx150, package fgg484, speed
+-2
+
+Analysis completed Tue Apr 04 18:19:00 2017
+--------------------------------------------------------------------------------
+
+Generating Report ...
+
+Number of warnings: 0
+Total time: 5 secs 
+
+
