@@ -21,7 +21,7 @@ function Controller_OpeningFcn(hObject, eventdata, handles, varargin)
 handles.output = hObject;
 guidata(hObject, handles);
 global TEMP;
-TEMP = uint32(2690187464);
+TEMP = uint32(2690187464); % FPGA initialization signals
 
 % --- Outputs from this function are returned to the command line.
 function varargout = Controller_OutputFcn(hObject, eventdata, handles) 
@@ -64,16 +64,17 @@ ep00wire = TEMP;
 numRows = int32(4); numCols = int32(Cap_SIZE);
 out = (Transfer_capture(numRows, numCols, ep00wire));
 if size(out,2) ~= 1
-    out = out(:,11:numCols-10);
+    out = out(:,11:numCols-10); % removing padding values at front and back
 end
 pady = 500; 
-minChannel = min(min(out(1:numRows,:)')) - pady; 
-maxChannel = max(max(out(1:numRows,:)')) + pady; 
-figure(1),subplot(5,1,1), plot(out(1,:)'); axis([0 numCols  minChannel maxChannel]);title('Channel A');ylabel('ADC Value');% xlabel('Samples');
-figure(1),subplot(5,1,2), plot(out(2,:)'); axis([0 numCols minChannel maxChannel]);title('Channel B');ylabel('ADC Value');% xlabel('Samples');
-figure(1),subplot(5,1,3), plot(out(3,:)'); axis([0 numCols minChannel maxChannel]);title('Channel C');ylabel('ADC Value');% xlabel('Samples');
-figure(1),subplot(5,1,4), plot(out(4,:)'); axis([0 numCols minChannel maxChannel]);title('Channel D');ylabel('ADC Value');% xlabel('Samples');
-figure(1),subplot(5,1,5), plot(out(1:4,:)');axis([0 numCols minChannel maxChannel]);title('Channel ABCD');ylabel('ADC Value'); xlabel('Samples');
+minChannel = min(out(:)) - pady; 
+maxChannel = max(out(:)) + pady; 
+figure(1);
+subplot(5,1,1), plot(out(1,:)'); axis([0 numCols  minChannel maxChannel]);title('Channel A');ylabel('ADC Value');% xlabel('Samples');
+subplot(5,1,2), plot(out(2,:)'); axis([0 numCols minChannel maxChannel]);title('Channel B');ylabel('ADC Value');% xlabel('Samples');
+subplot(5,1,3), plot(out(3,:)'); axis([0 numCols minChannel maxChannel]);title('Channel C');ylabel('ADC Value');% xlabel('Samples');
+subplot(5,1,4), plot(out(4,:)'); axis([0 numCols minChannel maxChannel]);title('Channel D');ylabel('ADC Value');% xlabel('Samples');
+subplot(5,1,5), plot(out(1:4,:)');axis([0 numCols minChannel maxChannel]);title('Channel ABCD');ylabel('ADC Value'); xlabel('Samples');
 
 % --- Executes on button press in btn_capture2.
 function btn_Capture2_Callback(hObject, eventdata, handles)
