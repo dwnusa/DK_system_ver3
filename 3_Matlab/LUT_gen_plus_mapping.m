@@ -7,7 +7,7 @@ clearvars;
 close all;
 % Parameter setting
 tic;
-filename = ['peak_data_07311550' '.txt'];
+filename = ['peak_data_08011527' '.txt'];
 fid1=fopen(filename);
 while ~feof(fid1)
     data=textscan(fid1,'%f %f %f %f','CollectOutput',1);
@@ -16,10 +16,10 @@ fclose(fid1);
 data = data{1};
 toc;
 %%
-clear all; close all;
-filename = ['peak_data_07311550' '.txt'];
-load('Sample3.mat');
-data = Sample';
+% clear all; close all;
+% filename = ['peak_data_07311550' '.txt'];
+% load('Sample3.mat');
+% data = Sample';
 
 %%
 LUT_generator =1;          % LUT_generator mode 1, mappping mode 0
