@@ -26,7 +26,11 @@ close all;
 %%
 clear all; close all;
 tic;
+<<<<<<< HEAD
 filename = ['Sample15_thr500_80cm' '.mat'];
+=======
+filename = ['Sample13_thr1000_60cm' '.mat'];
+>>>>>>> 8973009836d016ee1a6f23b2093e0db2d7dcdf79
 
 load(filename);
 data=[Sample(1,:); Sample(2,:); Sample(3,:); Sample(4,:)]';
@@ -363,6 +367,7 @@ ii=fliplr(i);
 close all;
 c=xlsread('19x19_anti.xlsx');
 counts=1;
+aaa = zeros(66,66);
 figure(5+counts);
 for i=1.:0.1:2.5;% i=1.:0.1:2.5;
 d=imresize(c,i,'bilinear');
@@ -372,19 +377,46 @@ d=imresize(c,i,'bilinear');
 subplot(4,5,counts),
 aa=imresize(a,2,'bilinear');
 aa = rot90(aa);
+if counts >= 8
+    if counts <= 10
+        disp(size(aa));
+        aaa = aaa + aa(65:130,65:130);
+    end
+end
 imshow(aa,[],'Colormap',jet(255)); title(counts);
 counts=counts+1;
 end
+imshow(aaa,[],'Colormap',jet(255)); title(counts);
 figure(5+counts);
 imshow(iii,[]);
 
-% figure(14)
-% d=imresize(c,1.4,'bilinear');
-% imshow(d,[]);
-%  iii=imresize(ii,3,'bilinear');
-% figure(15);
-%  a=xcorr2(iii,d);
-%   aa=imresize(a,2);
-%  imshow(aa,[]);
-%  
- 
+return;
+%% 영상처리
+close all;
+c=xlsread('19x19_anti.xlsx');
+counts=1;
+kernel1 = -1 * ones(3)/9; kernel1(2,2) = 8/9;
+kernel2 = [-1 -2 -1; -2 12 -2; -1 -2 -1]/16;
+aaa = zeros(66,66);
+figure(5+counts);
+for i=1.:0.1:2.5;% i=1.:0.1:2.5;
+d=imresize(c,i,'bilinear');
+ iii=imresize(ii,3,'bilinear');
+    a=xcorr2(iii,d);
+% figure(5+counts);
+subplot(4,5,counts),
+aa=imresize(a,2,'bilinear');
+aa = rot90(aa);
+aa = imfilter(single(aa), kernel2);
+if counts >= 8
+    if counts <= 10
+        disp(size(aa));
+        aaa = aaa + aa(65:130,65:130);
+    end
+end
+imshow(aa,[],'Colormap',jet(255)); title(counts);
+counts=counts+1;
+end
+imshow(aaa,[],'Colormap',jet(255)); title(counts);
+figure(5+counts);
+imshow(iii,[]);
