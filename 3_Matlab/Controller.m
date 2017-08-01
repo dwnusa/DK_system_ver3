@@ -70,10 +70,17 @@ pady = 500;
 minChannel = min(out(:)) - pady; 
 maxChannel = max(out(:)) + pady; 
 figure(1);
+<<<<<<< HEAD
 subplot(5,1,1), plot(out(1,:)'); axis([0 numCols  minChannel maxChannel]);title('Channel A');ylabel('ADC Value');% xlabel('Samples');
 subplot(5,1,2), plot(out(2,:)'); axis([0 numCols minChannel maxChannel]);title('Channel B');ylabel('ADC Value');% xlabel('Samples');
 subplot(5,1,3), plot(out(3,:)'); axis([0 numCols minChannel maxChannel]);title('Channel C');ylabel('ADC Value');% xlabel('Samples');
 subplot(5,1,4), plot(out(4,:)'); axis([0 numCols minChannel maxChannel]);title('Channel D');ylabel('ADC Value');% xlabel('Samples');
+=======
+subplot(5,1,1), plot(out(1,:)','-o','MarkerSize',2); axis([0 numCols  minChannel maxChannel]);title('Channel A');ylabel('ADC Value');% xlabel('Samples');
+subplot(5,1,2), plot(out(2,:)','-o','MarkerSize',2); axis([0 numCols minChannel maxChannel]);title('Channel B');ylabel('ADC Value');% xlabel('Samples');
+subplot(5,1,3), plot(out(3,:)','-o','MarkerSize',2); axis([0 numCols minChannel maxChannel]);title('Channel C');ylabel('ADC Value');% xlabel('Samples');
+subplot(5,1,4), plot(out(4,:)','-o','MarkerSize',2); axis([0 numCols minChannel maxChannel]);title('Channel D');ylabel('ADC Value');% xlabel('Samples');
+>>>>>>> b46079825acaad509034447bea2f4e3d8e16e261
 subplot(5,1,5), plot(out(1:4,:)');axis([0 numCols minChannel maxChannel]);title('Channel ABCD');ylabel('ADC Value'); xlabel('Samples');
 
 % --- Executes on button press in btn_capture2.
@@ -87,10 +94,10 @@ if size(out,2) ~= 1
 end
 
 pady = 500; miny = min(out(:)) - pady; maxy = max(out(:)) + pady;
-figure(2),subplot(5,1,1), plot(out(1,:)'); axis([0 numCols  miny maxy]);title('Channel A');ylabel('ADC Value');% xlabel('Samples');
-figure(2),subplot(5,1,2), plot(out(2,:)'); axis([0 numCols miny maxy]);title('Channel B');ylabel('ADC Value');% xlabel('Samples');
-figure(2),subplot(5,1,3), plot(out(3,:)'); axis([0 numCols miny maxy]);title('Channel C');ylabel('ADC Value');% xlabel('Samples');
-figure(2),subplot(5,1,4), plot(out(4,:)'); axis([0 numCols miny maxy]);title('Channel D');ylabel('ADC Value');% xlabel('Samples');
+figure(2),subplot(5,1,1), plot(out(1,:)','-o','MarkerSize',2); axis([0 numCols  miny maxy]);title('Channel A');ylabel('ADC Value');% xlabel('Samples');
+figure(2),subplot(5,1,2), plot(out(2,:)','-o','MarkerSize',2); axis([0 numCols miny maxy]);title('Channel B');ylabel('ADC Value');% xlabel('Samples');
+figure(2),subplot(5,1,3), plot(out(3,:)','-o','MarkerSize',2); axis([0 numCols miny maxy]);title('Channel C');ylabel('ADC Value');% xlabel('Samples');
+figure(2),subplot(5,1,4), plot(out(4,:)','-o','MarkerSize',2); axis([0 numCols miny maxy]);title('Channel D');ylabel('ADC Value');% xlabel('Samples');
 figure(2),subplot(5,1,5), plot(out(1:4,:)');axis([0 numCols miny maxy]);title('Channel ABCD');ylabel('ADC Value'); xlabel('Samples');
 
 % --- Executes on button press in btn_Sample.
@@ -114,27 +121,27 @@ IM_Temp = zeros(sizx, sizy); IM_Sample = zeros(sizx, sizy);
 cnt = 0;
 figure(3), subplot(2,2,1); handlesPlot{1} = imagesc(IM_Temp); colormap(jet);title('Flood Image');
 figure(3), subplot(2,2,2); handlesPlot{2} = imagesc(IM_Sample); colormap(jet);title('Flood Image');
-figure(3), subplot(2,2,3); handlesPlot{3} = imagesc(IM_Sample); colormap(jet);title('Flood Image');
+% figure(3), subplot(2,2,3); handlesPlot{3} = imagesc(IM_Sample); colormap(jet);title('Flood Image');
     while (cnt < Stream_SIZE)
         if getappdata(h,'canceling')
             break
         end
         Temp = double(Transfer_capture(numRows, numCols, ep00wire));
         if size(Temp,2) ~= 1
-            Temp = Temp(:,11:numCols-10);
+            Temp = Temp(:,2:numCols-1);
             if (MODE == false) % DPC
                 Energy = sum(Temp); 
                 X = min(512, max(1, round((Temp(1,:)+Temp(2,:))./Energy.*300+100)));
                 Y = min(512, max(1, round((Temp(1,:)+Temp(3,:))./Energy.*300+100)));
             else  % SCD
                 Energy = sum(Temp); 
-                X = min(512, max(1, round((Temp(4,:)-Temp(3,:))./Energy.*128*2+256))); %  xx = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data3[i] - data4[i]) / total  );
-                Y = min(512, max(1, round((Temp(2,:)-Temp(1,:))./Energy.*128*2+256))); %  yy = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data1[i] - data2[i]) / total  );
+                Y = min(512, max(1, round((Temp(3,:)-Temp(4,:))./(Temp(4,:)+Temp(3,:)).*128*2+256))); %  xx = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data3[i] - data4[i]) / total  );
+                X = min(512, max(1, round((Temp(2,:)-Temp(1,:))./(Temp(2,:)+Temp(1,:)).*128*2+256))); %  yy = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data1[i] - data2[i]) / total  );
             end
             % XY = [XY [X; Y]];
             Sample = [Sample Temp];
             cnt = min(Stream_SIZE,size(Sample(1,:),2));
-            IM_Temp = rot90(full(sparse(Y,X,1,sizx,sizy))',2);
+            IM_Temp = full(sparse(Y,X,1,sizx,sizy));% rot90(full(sparse(Y,X,1,sizx,sizy))',2);
             IM_Sample = IM_Sample + IM_Temp;
             set(handlesPlot{1},'CData',IM_Temp);% imagesc(IM_Temp); title('Flood Image'); colormap(jet); % Display XYSUM
             set(handlesPlot{2},'CData',IM_Sample);% imagesc(IM_Sample); title('Flood Image'); colormap(jet); % Display XYSUM
@@ -270,7 +277,7 @@ E = bitor(D,shiftC);
 TEMP = E;
 debug_temp = dec2bin(TEMP,32);
 disp(num2str(['debug_temp : ' num2str(debug_temp) '(32) (' num2str(dec2bin(bitshift(A,-22)),10) ')(10) (' num2str(dec2bin(B,8)) ')(8) (' num2str(dec2bin(C,14)) ')(14)']));
-Cap_SIZE = max(128,min(16384,str2double(get(handles.txt_Csize,'String'))));
+Cap_SIZE = max(8,min(1024,str2double(get(handles.txt_Csize,'String'))));
 Stream_SIZE = max(128,str2double(get(handles.txt_TotalCnt,'String')));
 PULSE_Size = numPS;
 disp(['Capture Size : ' num2str(Cap_SIZE)]); 
