@@ -3,13 +3,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.07 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.07 secs
  
 --> Reading design: top.prj
@@ -134,10 +134,14 @@ Parsing architecture <Behavioral> of entity <filter_control>.
 Parsing VHDL file "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" into library work
 Parsing entity <top>.
 Parsing architecture <Behavioral> of entity <top>.
-WARNING:HDLCompiler:946 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 334: Actual for formal port ep_ready is neither a static name nor a globally static expression
-WARNING:HDLCompiler:946 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 339: Actual for formal port ep_ready is neither a static name nor a globally static expression
-WARNING:HDLCompiler:946 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 344: Actual for formal port ep_ready is neither a static name nor a globally static expression
-WARNING:HDLCompiler:946 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 349: Actual for formal port ep_ready is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 309: Actual for formal port ep_ready is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 314: Actual for formal port ep_ready is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 319: Actual for formal port ep_ready is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 324: Actual for formal port ep_ready is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 411: Actual for formal port datain1 is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 412: Actual for formal port datain2 is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 413: Actual for formal port datain3 is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 414: Actual for formal port datain4 is neither a static name nor a globally static expression
 
 =========================================================================
 *                            HDL Elaboration                            *
@@ -164,7 +168,7 @@ Going to verilog side to elaborate module dkver1_cw
 
 Elaborating module <dkver1_cw>.
 Back to vhdl to continue elaboration
-WARNING:HDLCompiler:634 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 247: Net <ep20wire[31]> does not have a driver.
+WARNING:HDLCompiler:634 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 222: Net <ep20wire[31]> does not have a driver.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -172,10 +176,11 @@ WARNING:HDLCompiler:634 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_syst
 
 Synthesizing Unit <top>.
     Related source file is "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd".
-INFO:Xst:3210 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" line 332: Output port <ep_blockstrobe> of the instance <epA0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" line 337: Output port <ep_blockstrobe> of the instance <epA1> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" line 342: Output port <ep_blockstrobe> of the instance <epA2> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" line 347: Output port <ep_blockstrobe> of the instance <epA3> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" line 237: Output port <dataout> of the instance <Inst_Filter_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" line 307: Output port <ep_blockstrobe> of the instance <epA0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" line 312: Output port <ep_blockstrobe> of the instance <epA1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" line 317: Output port <ep_blockstrobe> of the instance <epA2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" line 322: Output port <ep_blockstrobe> of the instance <epA3> is unconnected or connected to loadless signal.
 WARNING:Xst:2935 - Signal 'ep20wire<31:4>', unconnected in block 'top', is tied to its initial value (0000000000000000000000000000).
     Register <wr_en1> equivalent to <wr_en0> has been removed
     Register <wr_en3> equivalent to <wr_en2> has been removed
@@ -194,11 +199,11 @@ WARNING:Xst:2935 - Signal 'ep20wire<31:4>', unconnected in block 'top', is tied 
     Found 1-bit register for signal <ep20wire<2>>.
     Found 1-bit register for signal <ep20wire<1>>.
     Found 1-bit register for signal <ep20wire<0>>.
-    Found 32-bit adder for signal <s_cnt[31]_GND_8_o_add_7_OUT> created at line 295.
-    Found 32-bit adder for signal <s_fullcnt0[31]_GND_8_o_add_8_OUT> created at line 303.
-    Found 32-bit adder for signal <s_fullcnt1[31]_GND_8_o_add_9_OUT> created at line 304.
-    Found 32-bit adder for signal <s_fullcnt2[31]_GND_8_o_add_12_OUT> created at line 307.
-    Found 32-bit adder for signal <s_fullcnt3[31]_GND_8_o_add_13_OUT> created at line 308.
+    Found 32-bit adder for signal <s_cnt[31]_GND_8_o_add_7_OUT> created at line 270.
+    Found 32-bit adder for signal <s_fullcnt0[31]_GND_8_o_add_8_OUT> created at line 278.
+    Found 32-bit adder for signal <s_fullcnt1[31]_GND_8_o_add_9_OUT> created at line 279.
+    Found 32-bit adder for signal <s_fullcnt2[31]_GND_8_o_add_12_OUT> created at line 282.
+    Found 32-bit adder for signal <s_fullcnt3[31]_GND_8_o_add_13_OUT> created at line 283.
     Summary:
 	inferred   5 Adder/Subtractor(s).
 	inferred 294 D-type flip-flop(s).
@@ -506,6 +511,70 @@ Optimizing unit <Filter_control> ...
 Optimizing unit <top> ...
 
 Optimizing unit <okHost> ...
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_21> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_22> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_23> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_24> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_25> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_26> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_27> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_28> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_29> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_30> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_31> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_32> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_33> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_34> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_35> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_43> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_44> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_36> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_45> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_46> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_47> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_48> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_49> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_50> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_51> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_52> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_53> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_54> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_55> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_56> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_57> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_58> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_65> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_66> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_67> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_68> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_69> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_70> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_71> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_72> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_73> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_74> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_75> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_76> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_77> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_78> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_79> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_80> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Inst_Filter_control/dataout_86> of sequential type is unconnected in block <top>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -605,7 +674,7 @@ Primitive and Black Box Usage:
 #      MUXF7                       : 2
 #      VCC                         : 24
 #      XORCY                       : 530
-# FlipFlops/Latches                : 4209
+# FlipFlops/Latches                : 4145
 #      FD                          : 472
 #      FDC                         : 455
 #      FDCE                        : 353
@@ -615,7 +684,6 @@ Primitive and Black Box Usage:
 #      FDR                         : 34
 #      FDRE                        : 1058
 #      FDSE                        : 2
-#      LD                          : 64
 # RAMS                             : 38
 #      RAM128X1S                   : 8
 #      RAM32M                      : 4
@@ -626,8 +694,8 @@ Primitive and Black Box Usage:
 # Shift Registers                  : 918
 #      SRL16E                      : 132
 #      SRLC16E                     : 786
-# Clock Buffers                    : 4
-#      BUFG                        : 4
+# Clock Buffers                    : 3
+#      BUFG                        : 3
 # IO Buffers                       : 106
 #      IBUF                        : 60
 #      IBUFG                       : 2
@@ -647,7 +715,7 @@ Selected Device : 6slx150fgg484-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            4106  out of  184304     2%  
+ Number of Slice Registers:            4042  out of  184304     2%  
  Number of Slice LUTs:                 3587  out of  92152     3%  
     Number used as Logic:              2625  out of  92152     2%  
     Number used as Memory:              962  out of  21680     4%  
@@ -655,11 +723,11 @@ Slice Logic Utilization:
        Number used as SRL:              918
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   6331
-   Number with an unused Flip Flop:    2225  out of   6331    35%  
-   Number with an unused LUT:          2744  out of   6331    43%  
-   Number of fully used LUT-FF pairs:  1362  out of   6331    21%  
-   Number of unique control sets:       116
+ Number of LUT Flip Flop pairs used:   6267
+   Number with an unused Flip Flop:    2225  out of   6267    35%  
+   Number with an unused LUT:          2680  out of   6267    42%  
+   Number of fully used LUT-FF pairs:  1362  out of   6267    21%  
+   Number of unique control sets:       115
 
 IO Utilization: 
  Number of IOs:                         106
@@ -669,7 +737,7 @@ IO Utilization:
 Specific Feature Utilization:
  Number of Block RAM/FIFO:               22  out of    268     8%  
     Number using Block RAM only:         22
- Number of BUFG/BUFGCTRLs:                4  out of     16    25%  
+ Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
  Number of DSP48A1s:                     36  out of    180    20%  
 
 ---------------------------
@@ -690,14 +758,13 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
--------------------------------------------------------+------------------------------------------------------------+-------+
-Clock Signal                                           | Clock buffer(FF name)                                      | Load  |
--------------------------------------------------------+------------------------------------------------------------+-------+
-sys_clk                                                | DCM_SP:CLKFX                                               | 3859  |
-okUH<0>                                                | DCM_SP:CLK0                                                | 1294  |
-Inst_Filter_control/inst_filter/blk00000001/sig00000094| BUFG                                                       | 64    |
-okHI/core0/okHE<41>                                    | NONE(okHI/core0/core0/a0/pm0/ram_1k_generate.s6.kcpsm6_rom)| 1     |
--------------------------------------------------------+------------------------------------------------------------+-------+
+-----------------------------------+------------------------------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                                      | Load  |
+-----------------------------------+------------------------------------------------------------+-------+
+sys_clk                            | DCM_SP:CLKFX                                               | 3859  |
+okUH<0>                            | DCM_SP:CLK0                                                | 1294  |
+okHI/core0/okHE<41>                | NONE(okHI/core0/core0/a0/pm0/ram_1k_generate.s6.kcpsm6_rom)| 1     |
+-----------------------------------+------------------------------------------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
@@ -823,24 +890,24 @@ Offset:              6.602ns (Levels of Logic = 6)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'sys_clk'
-  Total number of paths / destination ports: 56 / 56
+  Total number of paths / destination ports: 120 / 120
 -------------------------------------------------------------------------
-Offset:              2.309ns (Levels of Logic = 2)
-  Source:            Ddata<7> (PAD)
-  Destination:       Inst_Filter_control/inst_input_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM9.ram (RAM)
+Offset:              2.460ns (Levels of Logic = 3)
+  Source:            Adata<13> (PAD)
+  Destination:       U0_dkver1_cw/dkver1_x0/sigmux_1d_7b192397cd/mux1/pipe_16_22_0_15 (FF)
   Destination Clock: sys_clk rising
 
-  Data Path: Ddata<7> to Inst_Filter_control/inst_input_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM9.ram
+  Data Path: Adata<13> to U0_dkver1_cw/dkver1_x0/sigmux_1d_7b192397cd/mux1/pipe_16_22_0_15
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   1.328   0.681  Ddata_7_IBUF (Ddata_7_IBUF)
-     begin scope: 'Inst_Filter_control/inst_input_fifo:din<7>'
-     begin scope: 'Inst_Filter_control/inst_input_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr:DINA<7>'
-     RAMB8BWER:DIADI7          0.300          ramloop[0].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM9.ram
+     IBUF:I->O             4   1.328   0.804  Adata_13_IBUF (Adata_13_IBUF)
+     begin scope: 'U0_dkver1_cw:datain1<15>'
+     LUT3:I2->O            1   0.254   0.000  dkver1_x0/sigmux_1d_7b192397cd/mux1/Mmux_unregy_join_6_181 (dkver1_x0/sigmux_1d_7b192397cd/mux1/unregy_join_6_1(15))
+     FDE:D                     0.074          dkver1_x0/sigmux_1d_7b192397cd/mux1/pipe_16_22_0_15
     ----------------------------------------
-    Total                      2.309ns (1.628ns logic, 0.681ns route)
-                                       (70.5% logic, 29.5% route)
+    Total                      2.460ns (1.656ns logic, 0.804ns route)
+                                       (67.3% logic, 32.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'okUH<0>'
@@ -887,14 +954,6 @@ Offset:              5.142ns (Levels of Logic = 2)
 Cross Clock Domains Report:
 --------------------------
 
-Clock to Setup on destination clock Inst_Filter_control/inst_filter/blk00000001/sig00000094
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-sys_clk        |         |         |    1.286|         |
----------------+---------+---------+---------+---------+
-
 Clock to Setup on destination clock okHI/core0/okHE<41>
 -------------------+---------+---------+---------+---------+
                    | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
@@ -913,26 +972,25 @@ sys_clk        |    1.280|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock sys_clk
--------------------------------------------------------+---------+---------+---------+---------+
-                                                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                                           |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
--------------------------------------------------------+---------+---------+---------+---------+
-Inst_Filter_control/inst_filter/blk00000001/sig00000094|         |    1.591|         |         |
-okUH<0>                                                |    3.681|         |         |         |
-sys_clk                                                |    6.360|         |         |         |
--------------------------------------------------------+---------+---------+---------+---------+
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+okUH<0>        |    3.681|         |         |         |
+sys_clk        |    6.360|         |         |         |
+---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 14.00 secs
-Total CPU time to Xst completion: 13.95 secs
+Total REAL time to Xst completion: 16.00 secs
+Total CPU time to Xst completion: 15.60 secs
  
 --> 
 
 Total memory usage is 302628 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   89 (   0 filtered)
-Number of infos    :   59 (   0 filtered)
+Number of warnings :  157 (   0 filtered)
+Number of infos    :   60 (   0 filtered)
 

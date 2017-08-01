@@ -5,16 +5,28 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="946" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 334: Actual for formal port <arg fmt="%s" index="1">ep_ready</arg> is neither a static name nor a globally static expression
+<msg type="warning" file="HDLCompiler" num="946" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 309: Actual for formal port <arg fmt="%s" index="1">ep_ready</arg> is neither a static name nor a globally static expression
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="946" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 339: Actual for formal port <arg fmt="%s" index="1">ep_ready</arg> is neither a static name nor a globally static expression
+<msg type="warning" file="HDLCompiler" num="946" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 314: Actual for formal port <arg fmt="%s" index="1">ep_ready</arg> is neither a static name nor a globally static expression
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="946" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 344: Actual for formal port <arg fmt="%s" index="1">ep_ready</arg> is neither a static name nor a globally static expression
+<msg type="warning" file="HDLCompiler" num="946" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 319: Actual for formal port <arg fmt="%s" index="1">ep_ready</arg> is neither a static name nor a globally static expression
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="946" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 349: Actual for formal port <arg fmt="%s" index="1">ep_ready</arg> is neither a static name nor a globally static expression
+<msg type="warning" file="HDLCompiler" num="946" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 324: Actual for formal port <arg fmt="%s" index="1">ep_ready</arg> is neither a static name nor a globally static expression
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="946" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 411: Actual for formal port <arg fmt="%s" index="1">datain1</arg> is neither a static name nor a globally static expression
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="946" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 412: Actual for formal port <arg fmt="%s" index="1">datain2</arg> is neither a static name nor a globally static expression
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="946" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 413: Actual for formal port <arg fmt="%s" index="1">datain3</arg> is neither a static name nor a globally static expression
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="946" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 414: Actual for formal port <arg fmt="%s" index="1">datain4</arg> is neither a static name nor a globally static expression
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1127" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\okLibrary.vhd" Line 66: Assignment to <arg fmt="%s" index="1">nothc0</arg> ignored, since the identifier is never used
@@ -23,19 +35,22 @@
 <msg type="warning" file="HDLCompiler" num="89" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\okLibrary.vhd" Line 38: &lt;<arg fmt="%s" index="1">fdre</arg>&gt; remains a black-box since it has no binding entity.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 247: Net &lt;<arg fmt="%s" index="1">ep20wire[31]</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd" Line 222: Net &lt;<arg fmt="%s" index="1">ep20wire[31]</arg>&gt; does not have a driver.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd</arg>&quot; line <arg fmt="%s" index="2">332</arg>: Output port &lt;<arg fmt="%s" index="3">ep_blockstrobe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">epA0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd</arg>&quot; line <arg fmt="%s" index="2">237</arg>: Output port &lt;<arg fmt="%s" index="3">dataout</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_Filter_control</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd</arg>&quot; line <arg fmt="%s" index="2">337</arg>: Output port &lt;<arg fmt="%s" index="3">ep_blockstrobe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">epA1</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd</arg>&quot; line <arg fmt="%s" index="2">307</arg>: Output port &lt;<arg fmt="%s" index="3">ep_blockstrobe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">epA0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd</arg>&quot; line <arg fmt="%s" index="2">342</arg>: Output port &lt;<arg fmt="%s" index="3">ep_blockstrobe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">epA2</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd</arg>&quot; line <arg fmt="%s" index="2">312</arg>: Output port &lt;<arg fmt="%s" index="3">ep_blockstrobe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">epA1</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd</arg>&quot; line <arg fmt="%s" index="2">347</arg>: Output port &lt;<arg fmt="%s" index="3">ep_blockstrobe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">epA3</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd</arg>&quot; line <arg fmt="%s" index="2">317</arg>: Output port &lt;<arg fmt="%s" index="3">ep_blockstrobe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">epA2</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">D:\Home-Robot\2_Workspace\System Generator\12_DK_system_ver3\2_Top\Top\top.vhd</arg>&quot; line <arg fmt="%s" index="2">322</arg>: Output port &lt;<arg fmt="%s" index="3">ep_blockstrobe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">epA3</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="2935" delta="old" >Signal &apos;<arg fmt="%s" index="1">ep20wire&lt;31:4&gt;</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">top</arg>&apos;, is tied to its initial value (<arg fmt="%s" index="3">0000000000000000000000000000</arg>).
@@ -292,6 +307,198 @@
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">s_fullcnt2_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_32</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_33</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_34</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_35</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_43</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_44</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_36</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_45</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_46</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_47</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_48</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_49</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_50</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_51</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_52</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_53</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_54</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_55</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_56</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_57</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_58</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_65</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_66</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_67</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_68</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_69</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_70</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_71</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_72</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_73</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_74</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_75</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_76</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_77</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_78</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_79</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_80</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">Inst_Filter_control/dataout_86</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">top</arg>&gt;.
 </msg>
 
 <msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">u3_fifo</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i&gt; </arg>

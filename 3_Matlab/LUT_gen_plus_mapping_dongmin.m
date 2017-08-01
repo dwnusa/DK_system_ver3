@@ -26,7 +26,7 @@ close all;
 %%
 clear all; close all;
 tic;
-filename = ['Sample15_thr1000_80cm' '.mat'];
+filename = ['Sample15_thr500_80cm' '.mat'];
 
 load(filename);
 data=[Sample(1,:); Sample(2,:); Sample(3,:); Sample(4,:)]';
