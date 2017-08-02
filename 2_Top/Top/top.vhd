@@ -37,31 +37,6 @@ architecture Behavioral of top is
 		dataout : OUT std_logic_vector(87 downto 0)
 		);
 	END COMPONENT;
---	COMPONENT dkver1_cw
---	PORT(
---		ce : IN std_logic;
---		clk : IN std_logic;
---		ctrl1_stretch21_14 : IN std_logic_vector(7 downto 0);
---		ctrl2_threshold13_0 : IN std_logic_vector(13 downto 0);
---		ctrl3_offseten29 : IN std_logic;
---		ctrl4_offsetrst30 : IN std_logic;
---		ctrl5_sim31 : IN std_logic;
---		datain1 : IN std_logic_vector(13 downto 0);
---		datain2 : IN std_logic_vector(13 downto 0);
---		datain3 : IN std_logic_vector(13 downto 0);
---		datain4 : IN std_logic_vector(13 downto 0);          
---		peakout1 : OUT std_logic_vector(13 downto 0);
---		peakout2 : OUT std_logic_vector(13 downto 0);
---		peakout3 : OUT std_logic_vector(13 downto 0);
---		peakout4 : OUT std_logic_vector(13 downto 0);
---		peakvalid : OUT std_logic;
---		pulseout1 : OUT std_logic_vector(15 downto 0);
---		pulseout2 : OUT std_logic_vector(15 downto 0);
---		pulseout3 : OUT std_logic_vector(15 downto 0);
---		pulseout4 : OUT std_logic_vector(15 downto 0);
---		pulsevalid : OUT std_logic
---		);
---	END COMPONENT;
 	COMPONENT dkver1_cw
 	PORT(
 		ce : IN std_logic;
@@ -425,34 +400,6 @@ end process;
 			empty => empty3
 		  );
 	
---	U0_sync_div_cw: peak_sync_div_cw PORT MAP(
---		x13_0_th => ep00wire(13 downto 0),
---		x21_14_ps => ep00wire(21 downto 14),
---		x29_osen => ep00wire(29),
---		x30_osrst => ep00wire(30),
---		x31_sim => ep00wire(31),
---		 
---		ce => '1',
---		clk => clk,
---		
---		adata => adata,
---		bdata => bdata, 
---		cdata => cdata,
---		ddata => ddata,
---		
---		rawab => rawab,
---		rawcd => rawcd ,
---		rawvalid => rawvalid,
---		
---		feature_valid => feature_valid,
---		featurea => featurea(15 downto 0),
---		featureb => featureb(15 downto 0),
---		featurec => featurec(15 downto 0),
---		featured => featured(15 downto 0),
---		
---		xysum => xysum,
---		xysum_valid => xysum_valid
---	);	
 	U0_dkver1_cw : dkver1_cw PORT MAP(
 		ce => '1',
 		clk => clk,
@@ -461,10 +408,10 @@ end process;
 		ctrl3_offseten29 => ep00wire(29),
 		ctrl4_offsetrst30 => ep00wire(30),
 		ctrl5_sim31 => ep00wire(31),
-		datain1 => data(63 downto 48),
-		datain2 => data(47 downto 32),
-		datain3 => data(31 downto 16),
-		datain4 => data(15 downto 0),
+		datain1 => std_logic_vector(resize(signed(Adata), 16)),--data(63 downto 48), --Adata std_logic_vector(resize(signed(slv_8), slv_16'length));
+		datain2 => std_logic_vector(resize(signed(Bdata), 16)),--data(47 downto 32), --Bdata std_logic_vector(resize(signed(slv_8), slv_16'length));
+		datain3 => std_logic_vector(resize(signed(Cdata), 16)),--data(31 downto 16), --Cdata std_logic_vector(resize(signed(slv_8), slv_16'length));
+		datain4 => std_logic_vector(resize(signed(Ddata), 16)),--data(15 downto 0), --Ddata std_logic_vector(resize(signed(slv_8), slv_16'length));
 		peakout1 => rawA,
 		peakout2 => rawB,
 		peakout3 => rawC,
@@ -476,24 +423,4 @@ end process;
 		pulseout4 => featured,
 		pulsevalid => feature_valid
 	);
---	
---	U0_dkver1_cw : dkver1_cw PORT MAP(
---		ce => '1',
---		clk => clk,
---		ctrl1_stretch21_14 => ep00wire(21 downto 14),
---		ctrl2_threshold13_0 => ep00wire(13 downto 0),
---		ctrl3_offseten29 => ep00wire(29),
---		ctrl4_offsetrst30 => ep00wire(30),
---		ctrl5_sim31 => ep00wire(31),
---		datain1 => adata,
---		datain2 => bdata,
---		datain3 => cdata,
---		datain4 => ddata,
---		dataout1 => featurea,
---		dataout2 => featureb,
---		dataout3 => featurec,
---		dataout4 => featured,
---		valid => feature_valid
---	);
-	
 	end Behavioral;
