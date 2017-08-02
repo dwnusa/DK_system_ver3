@@ -3,7 +3,6 @@
 % Editor: Donghyun Jang
 % e-mail: jangdh0929@gmail.com
 
-% clearvars;
 close all;
 %% Parameter setting
 % 
@@ -20,17 +19,10 @@ close all;
 % 
 % toc;
 
-
-
-
 %%
 clear all; close all;
 tic;
-<<<<<<< HEAD
-filename = ['Sample15_thr500_80cm' '.mat'];
-=======
-filename = ['Sample13_thr1000_60cm' '.mat'];
->>>>>>> 8973009836d016ee1a6f23b2093e0db2d7dcdf79
+filename = ['Sample9_30cm' '.mat'];
 
 load(filename);
 data=[Sample(1,:); Sample(2,:); Sample(3,:); Sample(4,:)]';
@@ -49,7 +41,7 @@ num_pixel = 16;             % The number of pixels per sensor. It must be a squa
 num_sensor = 9;             % The number of arrays of SiPMs or MPPCs. It must be a square number.
 
 energy_lld = 0000;           % 15pF_900, 30pF_900, 51pF_900
-energy_uld = 2*max(max(data)); %sum(max(data))         % It's equal to a maximum bin of energy spectrum
+energy_uld = max(max(data)); %sum(max(data))         % It's equal to a maximum bin of energy spectrum
 energy_count_max = 500;     % Y-axis limit in energy spectrum
 
 fitting_lld = round(0.25*max(max(data)),-2);             % Starting point for searching maximum peak in photopeak region, % 15pF_1200, 30pF_1600, 51pF_1900
@@ -84,7 +76,6 @@ bin_size = 25;
 %           | 6 . . . | * |38 . . . |
 %           | 7 . . . | * |39 . . . |
 %           | 8 . . . | * |40 . . . | -
-
 % Raw flood histogram
 
 [num, ch]=size(data);
@@ -94,15 +85,14 @@ num_row_pixel_sensor = sqrt(num_pixel);
 num_row_pixel_total = num_row_pixel_sensor * num_sensor_row;
 num_pixel_total = num_row_pixel_total^2;
 
-
 rawdata(:,3) = (data(:,1)+data(:,2)+data(:,3)+data(:,4));
 % rawdata(:,3) = data(:,1);
 
 figure(1); % Plot of total summed energy spectrum
-hist(rawdata(:,3),min(rawdata(:,3)):bin_size:max(rawdata(:,3))); xlim([energy_lld energy_uld]); ylim([0 10000]);
+hist(rawdata(:,3),min(rawdata(:,3)):bin_size:max(rawdata(:,3))); xlim([energy_lld energy_uld]); ylim([0 800]);
 title('Summed energy spectrum', 'FontSize',24, 'FontWeight','Bold')
 
-
+%%
 %     Relation between Anger positions and ADC values.
 %
 %              A                      D

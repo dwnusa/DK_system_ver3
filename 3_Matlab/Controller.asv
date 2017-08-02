@@ -180,7 +180,7 @@ numRows = int32(4); numCols = int32(Cap_SIZE);
 IM_Sample = zeros(sizx, sizy);
 cnt = 0;
 figure(4), 
-subplot(1,2,1), handlesPlot{1} = imagesc(IM_Sample); colormap(jet); title('Cumulative Flood Image');
+subplot(2,2,1), handlesPlot{1} = imagesc(IM_Sample); colormap(jet); title('Cumulative Flood Image');
     while (cnt < TOTAL_COUNT)
         if getappdata(h,'canceling')
             break
@@ -194,12 +194,23 @@ subplot(1,2,1), handlesPlot{1} = imagesc(IM_Sample); colormap(jet); title('Cumul
                 X = min(sizx, max(1, round((Temp(1,:)+Temp(2,:))./Energy.*300+100)));
                 Y = min(sizy, max(1, round((Temp(1,:)+Temp(3,:))./Energy.*300+100)));
             else  % SCD
+                % Energy = sum(Temp); 
                 Y = min(sizy, max(1, round((Temp(3,:)-Temp(4,:))./(Temp(4,:)+Temp(3,:)).*128*2+256))); %  xx = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data3[i] - data4[i]) / total  );
                 X = min(sizx, max(1, round((Temp(2,:)-Temp(1,:))./(Temp(2,:)+Temp(1,:)).*128*2+256))); %  yy = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data1[i] - data2[i]) / total  );
             end
+            
+            dst_start_index = cnt+1; 
+            dst_end_index   = cnt+length_Temp; 
+            dst_end_index 	= min(TOTAL_COUNT, dst_end_index);
+%             dst_range       = dst_start_index:dst_end_index;
+            
+            src_start_index = 1;
             src_end_index   = min(length_Temp, TOTAL_COUNT-cnt);
-            cnt = cnt + src_end_index;
-            IM_Temp = full(sparse(Y,X,1,sizx,sizy));
+%             src_range       = src_start_index:src_end_index;
+            
+            % Sample(:,dst_range) = Temp(:,src_range);
+            cnt = cnt + src_end_index;% min(TOTAL_COUNT,size(Sample(1,:),2));
+            IM_Temp = full(sparse(Y,X,1,sizx,sizy));% rot90(full(sparse(Y,X,1,sizx,sizy))',2);
             IM_Sample = IM_Sample + IM_Temp;
 %             set(handlesPlot{1},'CData',IM_Temp);% imagesc(IM_Temp); title('Flood Image'); colormap(jet); % Display XYSUM
             set(handlesPlot{1},'CData',IM_Sample);% imagesc(IM_Sample); title('Flood Image'); colormap(jet); % Display XYSUM
@@ -215,8 +226,7 @@ catch
 end
 % ÇÈ¼¿ºÐÇÒ
 relabel_img = pixel_segmentation(IM_Sample);
-figure(4), subplot(1,2,2), imagesc(relabel_img);
-
+figure(4), subplot(2,2,2), im
 % --- Executes on button press in btn_Extract.
 % function btn_Extract_Callback(hObject, eventdata, handles)
 % global FILENAME;
