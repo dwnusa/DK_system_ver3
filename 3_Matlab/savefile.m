@@ -1,6 +1,6 @@
 % 파일 저장
-function savefile(Filename, cnt, Sample)
-global TOTAL_COUNT
+function savefile(Filename, cnt, TOTAL_COUNT, Sample)
+% global TOTAL_COUNT
 filename = sprintf('%s',Filename);
 if cnt/TOTAL_COUNT == 1 % (cnt <= TOTAL_COUNT)
     i = 1;

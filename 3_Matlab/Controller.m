@@ -31,6 +31,9 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in btn_Setup.
 function btn_Setup_Callback(hObject, eventdata, handles)
+global SIZX SIZY;
+clc;
+SIZX = 512; SIZY = 512;
 mex -g Transfer_capture.cpp;
 mex -g Transfer_extract.cpp;
 mex -g helloMex.cpp;
@@ -54,7 +57,8 @@ clear function;
 
 % --- Executes on button press in btn_Reset.
 function btn_Reset_Callback(hObject, eventdata, handles)
-global TEMP;
+global TEMP SIZX SIZY;
+SIZX = 512; SIZY = 512;
 ep00wire_Callback(hObject, eventdata, handles) ;
 ep00wire = TEMP;
 Transfer_reset(ep00wire); %out = (Transfer_capture(numRows, numCols, ep00wire));
@@ -97,7 +101,18 @@ figure(2),subplot(5,1,5), plot(out(1:4,:)');axis([0 numCols miny maxy]);title('C
 
 % --- Executes on button press in btn_Sample.
 function btn_Sample_Callback(hObject, eventdata, handles)
-global TOTAL_COUNT TEMP Cap_SIZE MODE FILENAME SIZX SIZY;
+global TOTAL_COUNT TEMP Cap_SIZE MODE FILENAME SIZX SIZY RELABEL_IMG;
+if sum(RELABEL_IMG(:)) == 0
+    Valid = false;
+    error('pixel segmentation is required');
+    return;
+else
+    relabel_img = RELABEL_IMG;
+    Valid = true;
+    queue = {};
+    q_cnt = 0;
+end
+coded_mask=xlsread('19x19_anti.xlsx');
 % À¥Ä·
 % Cam = webcam('USB2.0 PC Camera');
 % Cam.Resolution = '640x480';
@@ -118,14 +133,15 @@ cnt = 0;
 figure(3),
 subplot(2,2,1); handlesPlot{1} = imagesc(IM_Temp);      colormap(jet);  title('Temporary Flood Image');
 subplot(2,2,2); handlesPlot{2} = imagesc(IM_Sample);    colormap(jet);  title('Cumulative Flood Image');
-% figure(3), subplot(2,2,3); handlesPlot{3} = imagesc(IM_Sample); colormap(jet);title('Flood Image');
+subplot(2,2,3); handlesPlot{3} = imagesc(IM_Sample);    colormap(jet);  title('Pixel Segmentation');
+subplot(2,2,4); handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('Merged Image');
     while (cnt < TOTAL_COUNT)
         if getappdata(h,'canceling')
             break
         end
         Temp = double(Transfer_capture(numRows, numCols, ep00wire));
         if size(Temp,2) ~= 1
-            Temp = Temp(:,2:numCols-1);
+%             Temp1 = Temp0(:,1:numCols-1);
             length_Temp = length(Temp);
             if (MODE == false) % DPC
                 Energy = sum(Temp); 
@@ -150,25 +166,49 @@ subplot(2,2,2); handlesPlot{2} = imagesc(IM_Sample);    colormap(jet);  title('C
             cnt = cnt + src_end_index;% min(TOTAL_COUNT,size(Sample(1,:),2));
             IM_Temp = full(sparse(Y,X,1,sizx,sizy));% rot90(full(sparse(Y,X,1,sizx,sizy))',2);
             IM_Sample = IM_Sample + IM_Temp;
+%             [relabel_img Valid] = pixel_segmentation(IM_Sample, sizx, sizy);
+            IM_Recon = reconstruct_coded_aperture(IM_Temp, coded_mask, relabel_img, Valid);
+            
+            if Valid
+                q_cnt = q_cnt + 1;
+                q_idx = mod(q_cnt,5)+1;
+                queue{q_idx} = IM_Recon;
+                if q_cnt < 4
+                    sum_relabel_img = IM_Recon;
+                else
+                    try
+                    sum_relabel_img = queue{1} + queue{2} + queue{3} + queue{4} + queue{5};
+                    catch e
+                        a = 1;
+                    end
+                end
+            else
+                sum_relabel_img = IM_Recon;
+            end
+            
             set(handlesPlot{1},'CData',IM_Temp);% imagesc(IM_Temp); title('Flood Image'); colormap(jet); % Display XYSUM
             set(handlesPlot{2},'CData',IM_Sample);% imagesc(IM_Sample); title('Flood Image'); colormap(jet); % Display XYSUM
-%             set(handlesPlot{3},'CData',snapshot(Cam));% imshow(snapshot(Cam));
+            set(handlesPlot{3},'CData',relabel_img);% imshow(snapshot(Cam));
+            set(handlesPlot{4},'CData',sum_relabel_img);% imshow(snapshot(Cam));
         end
         waitbar(cnt/TOTAL_COUNT,h,sprintf('%d / %d',cnt, TOTAL_COUNT));
-        pause(1/50);
+        pause(1/10);
         disp([num2str(src_end_index) '/' num2str(cnt) '/' num2str(TOTAL_COUNT)]);
     end
 delete(h);
 % delete(Cam);
-catch
+catch e
     delete(h);
+%     fprintf(1,'The identifier was:\n%s',e.identifier);
+    fprintf(1,'There was an error! \nThe message was:\n%s\n',e.message);
+%     disp('\n');
 %     delete(Cam);
 end
-savefile(Filename, dst_range, Sample);
+savefile(Filename, dst_end_index, TOTAL_COUNT, Sample);
 
 % --- Executes on button press in btn_Pixel.
 function btn_Pixel_Callback(hObject, eventdata, handles)
-global TOTAL_COUNT TEMP Cap_SIZE MODE SIZX SIZY;
+global TOTAL_COUNT TEMP Cap_SIZE MODE SIZX SIZY RELABEL_IMG;
 h = waitbar(0,'1','Name', 'Sample extract...',...
     'CreateCancelBtn',...
     'setappdata(gcbf,''canceling'',1)');
@@ -181,13 +221,15 @@ IM_Sample = zeros(sizx, sizy);
 cnt = 0;
 figure(4), 
 subplot(1,2,1), handlesPlot{1} = imagesc(IM_Sample); colormap(jet); title('Cumulative Flood Image');
+subplot(1,2,2), handlesPlot{2} = imagesc(IM_Sample); colormap(jet); title('Cumulative Flood Image');
     while (cnt < TOTAL_COUNT)
+        q_cnt = q_cnt + 1;
         if getappdata(h,'canceling')
             break
         end
         Temp = double(Transfer_capture(numRows, numCols, ep00wire));
         if size(Temp,2) ~= 1
-            Temp = Temp(:,2:numCols-1);
+%             Temp = Temp(:,:numCols-1);
             length_Temp = length(Temp);
             if (MODE == false) % DPC
                 Energy = sum(Temp); 
@@ -201,21 +243,25 @@ subplot(1,2,1), handlesPlot{1} = imagesc(IM_Sample); colormap(jet); title('Cumul
             cnt = cnt + src_end_index;
             IM_Temp = full(sparse(Y,X,1,sizx,sizy));
             IM_Sample = IM_Sample + IM_Temp;
+            % ÇÈ¼¿ºÐÇÒ
+            [relabel_img Valid]  = pixel_segmentation(IM_Sample, sizx, sizy);
 %             set(handlesPlot{1},'CData',IM_Temp);% imagesc(IM_Temp); title('Flood Image'); colormap(jet); % Display XYSUM
             set(handlesPlot{1},'CData',IM_Sample);% imagesc(IM_Sample); title('Flood Image'); colormap(jet); % Display XYSUM
-%             set(handlesPlot{3},'CData',snapshot(Cam));% imshow(snapshot(Cam));
+            set(handlesPlot{2},'CData',relabel_img);% imshow(snapshot(Cam));
         end
         waitbar(cnt/TOTAL_COUNT,h,sprintf('%d / %d',cnt, TOTAL_COUNT));
         pause(1/50);
         disp([num2str(src_end_index) '/' num2str(cnt) '/' num2str(TOTAL_COUNT)]);
     end
 delete(h);
-catch
+catch e
     delete(h);
+    fprintf(1,'There was an error! \nThe message was:\n%s\n',e.message);
 end
 % ÇÈ¼¿ºÐÇÒ
-relabel_img = pixel_segmentation(IM_Sample);
-figure(4), subplot(1,2,2), imagesc(relabel_img);
+[relabel_img Valid]  = pixel_segmentation(IM_Sample, sizx, sizy);
+RELABEL_IMG = relabel_img;
+figure(5), imagesc(relabel_img);
 
 % --- Executes on button press in btn_Extract.
 % function btn_Extract_Callback(hObject, eventdata, handles)

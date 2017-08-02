@@ -31,6 +31,9 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in btn_Setup.
 function btn_Setup_Callback(hObject, eventdata, handles)
+global SIZX SIZY;
+clc;
+SIZX = 512; SIZY = 512;
 mex -g Transfer_capture.cpp;
 mex -g Transfer_extract.cpp;
 mex -g helloMex.cpp;
@@ -54,7 +57,8 @@ clear function;
 
 % --- Executes on button press in btn_Reset.
 function btn_Reset_Callback(hObject, eventdata, handles)
-global TEMP;
+global TEMP SIZX SIZY;
+SIZX = 512; SIZY = 512;
 ep00wire_Callback(hObject, eventdata, handles) ;
 ep00wire = TEMP;
 Transfer_reset(ep00wire); %out = (Transfer_capture(numRows, numCols, ep00wire));
@@ -97,7 +101,16 @@ figure(2),subplot(5,1,5), plot(out(1:4,:)');axis([0 numCols miny maxy]);title('C
 
 % --- Executes on button press in btn_Sample.
 function btn_Sample_Callback(hObject, eventdata, handles)
-global TOTAL_COUNT TEMP Cap_SIZE MODE FILENAME SIZX SIZY;
+global TOTAL_COUNT TEMP Cap_SIZE MODE FILENAME SIZX SIZY RELABEL_IMG;
+if sum(RELABEL_IMG(:)) == 0
+    Valid = false;
+    error('pixel segmentation is required');
+    return;
+else
+    relabel_img = RELABEL_IMG;
+    Valid = true;
+end
+coded_mask=xlsread('19x19_anti.xlsx');
 % 웹캠
 % Cam = webcam('USB2.0 PC Camera');
 % Cam.Resolution = '640x480';
@@ -118,14 +131,15 @@ cnt = 0;
 figure(3),
 subplot(2,2,1); handlesPlot{1} = imagesc(IM_Temp);      colormap(jet);  title('Temporary Flood Image');
 subplot(2,2,2); handlesPlot{2} = imagesc(IM_Sample);    colormap(jet);  title('Cumulative Flood Image');
-% figure(3), subplot(2,2,3); handlesPlot{3} = imagesc(IM_Sample); colormap(jet);title('Flood Image');
+subplot(2,2,3); handlesPlot{3} = imagesc(IM_Sample);    colormap(jet);  title('Pixel Segmentation');
+subplot(2,2,4); handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('Merged Image');
     while (cnt < TOTAL_COUNT)
         if getappdata(h,'canceling')
             break
         end
         Temp = double(Transfer_capture(numRows, numCols, ep00wire));
         if size(Temp,2) ~= 1
-            Temp = Temp(:,2:numCols-1);
+%             Temp1 = Temp0(:,1:numCols-1);
             length_Temp = length(Temp);
             if (MODE == false) % DPC
                 Energy = sum(Temp); 
@@ -150,25 +164,34 @@ subplot(2,2,2); handlesPlot{2} = imagesc(IM_Sample);    colormap(jet);  title('C
             cnt = cnt + src_end_index;% min(TOTAL_COUNT,size(Sample(1,:),2));
             IM_Temp = full(sparse(Y,X,1,sizx,sizy));% rot90(full(sparse(Y,X,1,sizx,sizy))',2);
             IM_Sample = IM_Sample + IM_Temp;
+%             [relabel_img Valid] = pixel_segmentation(IM_Sample, sizx, sizy);
+            IM_Recon = reconstruct_coded_aperture(IM_Temp, coded_mask, relabel_img, Valid);
+            
             set(handlesPlot{1},'CData',IM_Temp);% imagesc(IM_Temp); title('Flood Image'); colormap(jet); % Display XYSUM
             set(handlesPlot{2},'CData',IM_Sample);% imagesc(IM_Sample); title('Flood Image'); colormap(jet); % Display XYSUM
-%             set(handlesPlot{3},'CData',snapshot(Cam));% imshow(snapshot(Cam));
+            set(handlesPlot{3},'CData',relabel_img);% imshow(snapshot(Cam));
+            set(handlesPlot{4},'CData',IM_Recon);% imshow(snapshot(Cam));
         end
         waitbar(cnt/TOTAL_COUNT,h,sprintf('%d / %d',cnt, TOTAL_COUNT));
-        pause(1/50);
+        pause(1/10);
         disp([num2str(src_end_index) '/' num2str(cnt) '/' num2str(TOTAL_COUNT)]);
     end
 delete(h);
 % delete(Cam);
-catch
+catch e
     delete(h);
+%     fprintf(1,'The identifier was:\n%s',e.identifier);
+    fprintf(1,'There was an error! \nThe message was:\n%s\n',e.message);
+%     disp('\n');
 %     delete(Cam);
 end
-savefile(Filename, dst_range, Sample);
+savefile(Filename, dst_end_index, TOTAL_COUNT, Sample);
 
 % --- Executes on button press in btn_Pixel.
 function btn_Pixel_Callback(hObject, eventdata, handles)
-global TOTAL_COUNT TEMP Cap_SIZE MODE SIZX SIZY;
+global TOTAL_COUNT TEMP Cap_SIZE MODE SIZX SIZY RELABEL_IMG;
+queue = {};
+q_cnt = 0;
 h = waitbar(0,'1','Name', 'Sample extract...',...
     'CreateCancelBtn',...
     'setappdata(gcbf,''canceling'',1)');
@@ -180,53 +203,56 @@ numRows = int32(4); numCols = int32(Cap_SIZE);
 IM_Sample = zeros(sizx, sizy);
 cnt = 0;
 figure(4), 
-subplot(2,2,1), handlesPlot{1} = imagesc(IM_Sample); colormap(jet); title('Cumulative Flood Image');
+subplot(1,2,1), handlesPlot{1} = imagesc(IM_Sample); colormap(jet); title('Cumulative Flood Image');
+subplot(1,2,2), handlesPlot{2} = imagesc(IM_Sample); colormap(jet); title('Cumulative Flood Image');
     while (cnt < TOTAL_COUNT)
+        q_cnt = q_cnt + 1;
         if getappdata(h,'canceling')
             break
         end
         Temp = double(Transfer_capture(numRows, numCols, ep00wire));
         if size(Temp,2) ~= 1
-            Temp = Temp(:,2:numCols-1);
+%             Temp = Temp(:,:numCols-1);
             length_Temp = length(Temp);
             if (MODE == false) % DPC
                 Energy = sum(Temp); 
                 X = min(sizx, max(1, round((Temp(1,:)+Temp(2,:))./Energy.*300+100)));
                 Y = min(sizy, max(1, round((Temp(1,:)+Temp(3,:))./Energy.*300+100)));
             else  % SCD
-                % Energy = sum(Temp); 
                 Y = min(sizy, max(1, round((Temp(3,:)-Temp(4,:))./(Temp(4,:)+Temp(3,:)).*128*2+256))); %  xx = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data3[i] - data4[i]) / total  );
                 X = min(sizx, max(1, round((Temp(2,:)-Temp(1,:))./(Temp(2,:)+Temp(1,:)).*128*2+256))); %  yy = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data1[i] - data2[i]) / total  );
             end
-            
-            dst_start_index = cnt+1; 
-            dst_end_index   = cnt+length_Temp; 
-            dst_end_index 	= min(TOTAL_COUNT, dst_end_index);
-%             dst_range       = dst_start_index:dst_end_index;
-            
-            src_start_index = 1;
             src_end_index   = min(length_Temp, TOTAL_COUNT-cnt);
-%             src_range       = src_start_index:src_end_index;
-            
-            % Sample(:,dst_range) = Temp(:,src_range);
-            cnt = cnt + src_end_index;% min(TOTAL_COUNT,size(Sample(1,:),2));
-            IM_Temp = full(sparse(Y,X,1,sizx,sizy));% rot90(full(sparse(Y,X,1,sizx,sizy))',2);
+            cnt = cnt + src_end_index;
+            IM_Temp = full(sparse(Y,X,1,sizx,sizy));
             IM_Sample = IM_Sample + IM_Temp;
+            % 픽셀분할
+            [relabel_img Valid]  = pixel_segmentation(IM_Sample, sizx, sizy);
+            q_idx = mod(q_cnt,5);
+            queue{q_idx} = relabel_img;
+            if q_cnt < 5
+                sum_relabel_img = relabel_img;
+            else
+                sum_relabel_img = queue{1} + queue{2}
+            end
 %             set(handlesPlot{1},'CData',IM_Temp);% imagesc(IM_Temp); title('Flood Image'); colormap(jet); % Display XYSUM
             set(handlesPlot{1},'CData',IM_Sample);% imagesc(IM_Sample); title('Flood Image'); colormap(jet); % Display XYSUM
-%             set(handlesPlot{3},'CData',snapshot(Cam));% imshow(snapshot(Cam));
+            set(handlesPlot{2},'CData',relabel_img);% imshow(snapshot(Cam));
         end
         waitbar(cnt/TOTAL_COUNT,h,sprintf('%d / %d',cnt, TOTAL_COUNT));
         pause(1/50);
         disp([num2str(src_end_index) '/' num2str(cnt) '/' num2str(TOTAL_COUNT)]);
     end
 delete(h);
-catch
+catch e
     delete(h);
+    fprintf(1,'There was an error! \nThe message was:\n%s\n',e.message);
 end
 % 픽셀분할
-relabel_img = pixel_segmentation(IM_Sample);
-figure(4), subplot(2,2,2), im
+[relabel_img Valid]  = pixel_segmentation(IM_Sample, sizx, sizy);
+RELABEL_IMG = relabel_img;
+figure(5), imagesc(relabel_img);
+
 % --- Executes on button press in btn_Extract.
 % function btn_Extract_Callback(hObject, eventdata, handles)
 % global FILENAME;
@@ -272,7 +298,8 @@ disp(['Capture Size : ' num2str(Cap_SIZE)]);
 disp(['Total Count : ' num2str(TOTAL_COUNT)]);
 disp(['MODE : ' num2str(MODE)]);
 
-% function realExtract()
+function realExtract()
+%% 미사용
 % global TEMP ELAPSE_TIME FEATURE CNT TotalCNT FILENAME;
 % ELAPSE_TIME = [];
 % FEATURE = [];
@@ -320,134 +347,59 @@ disp(['MODE : ' num2str(MODE)]);
 
 % This function is called by the timer to display one frame of the figure
 function ExtractFeatures(obj, event,ep00wire)
-global FEATURE ELAPSE_TIME TOTAL_COUNT CNT TotalCNT;
-tic;
-% FPGA DAQ
-numRows = int32(4); numCols = int32(TOTAL_COUNT);
-% out = (Transfer_extract(numRows, numCols, ep00wire));
-out = (Transfer_capture(numRows, numCols, ep00wire));
-len = size(out,2);
-if len ~= 1
-    CNT = CNT + len;
-    CNT = min(TotalCNT, CNT);
-    out = out(:,11:numCols-10);
-    FEATURE = [FEATURE out]; % 11:numCols-10);
-    disp(size(FEATURE));
-else
-    disp('fifo empty');
-end
-ELAPSE_TIME(end+1) = toc;
+%% 미사용
+% global FEATURE ELAPSE_TIME TOTAL_COUNT CNT TotalCNT;
+% tic;
+% % FPGA DAQ
+% numRows = int32(4); numCols = int32(TOTAL_COUNT);
+% % out = (Transfer_extract(numRows, numCols, ep00wire));
+% out = (Transfer_capture(numRows, numCols, ep00wire));
+% len = size(out,2);
+% if len ~= 1
+%     CNT = CNT + len;
+%     CNT = min(TotalCNT, CNT);
+%     out = out(:,11:numCols-10);
+%     FEATURE = [FEATURE out]; % 11:numCols-10);
+%     disp(size(FEATURE));
+% else
+%     disp('fifo empty');
+% end
+% ELAPSE_TIME(end+1) = toc;
 
 % --- Executes during object creation, after setting all properties.
 function txt_PSt_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
 % --- Executes during object creation, after setting all properties.
 function txt_Thr_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
 % --- Executes during object creation, after setting all properties.
 function txt_Csize_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
 % --- Executes during object creation, after setting all properties.
 function txt_TotalCnt_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
 function txt_filename_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
 % --- Executes during object creation, after setting all properties.
 function txt_LLD_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
 % --- Executes during object creation, after setting all properties.
 function txt_ULD_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
 
-function savefile(Filename, cnt, Sample)
-global TOTAL_COUNT
-filename = sprintf('%s',Filename);
-if cnt/TOTAL_COUNT == 1 % (cnt <= TOTAL_COUNT)
-    i = 1;
-    while true
-        if exist([filename '.mat'],'file') == 2
-            filename = sprintf('%s (%d)',Filename,i);
-            i = i + 1;
-        else
-            save([filename '.mat'],'Sample');
-            disp('File saved!!');
-            msgbox({'File saved!!' [filename '.mat']});
-            break;
-        end;
-    end;
-else
-    disp('Canceled, Not saved!!');
-    msgbox({'Canceled, Not saved!!' [filename '.mat']});
-end;
 
-function [relabel_img] = pixel_segmentation(IM_Sample)
-global SIZX SIZY
-%% 픽셀분할 영상처리
-sizx = SIZX; sizy = SIZY;
-% 임시 영상 생성
-clear all; close all;
-filename = ['Sample5' '.mat'];
-load(filename);
-Y = min(sizy, max(1, round((Sample(3,:)-Sample(4,:))./(Sample(4,:)+Sample(3,:)).*128*2+256)));
-X = min(sizx, max(1, round((Sample(2,:)-Sample(1,:))./(Sample(2,:)+Sample(1,:)).*128*2+256)));
-% i = 1;
-% 영상생성
-IM_Sample = full(sparse(Y,X,1,sizy,sizx));            % figure(i), imagesc(IM_Sample); title('full'); i=i+1;
-% 가우스 블러링
-IM_Sample = imgaussfilt(IM_Sample, 2);              % figure(i), imagesc(IM_Sample); title('imgaussfilt'); i=i+1;
-% 영상 밝기 정규화 0~255
-IM_Sample = IM_Sample./max(IM_Sample(:))*255;       % figure(i), imagesc(IM_Sample); title('IM_Sample./max(IM_Sample(:))*255'); i=i+1;
-% 배경잡음 제거 (임계치)
-IM_threshold = (IM_Sample > 30);                  % figure(i), imagesc(IM_threshold); title('im2bw'); i=i+1;
-IM_Sample = IM_threshold .* IM_Sample;                  % figure(i), imagesc(IM_Sample); title('.*'); i=i+1;
-% 가우스 블러링
-img1 = imgaussfilt(IM_Sample, 7);                   % figure(i), imagesc(img1); title('imgaussfilt'); i=i+1;
-% 지역 최대값 추출
-img1_maxregion = imregionalmax(img1);      % figure(i), imagesc(img1_maxregion); title('imregionalmax'); i=i+1;
-% 거리계산
-img1_blob = bwdist(img1_maxregion);                 % figure(i), imagesc(img1_blob); title('bwdist'); i=i+1;
-% 워터쉐드
-img1_watershed = watershed(img1_blob);              % figure(i), imagesc(img1_watershed); title('watershed'); i=i+1;
-% 픽셀별 라벨링 한점씩 수집
-img1_labels = img1_maxregion .* single(img1_watershed);   % figure(i), imagesc(img1_labels); title('.*'); i=i+1;
 
-[x, y, v] = find(img1_labels); % 요소추출
-temp_rows = sortrows([y x v]); % y값 기준 오름차순
-temp_rows = reshape(temp_rows(:,3), [12, 12]); % 12x12 재배열
-temp_cols = sortrows([x y v]); % x값 기준 오름차순
-temp_cols = reshape(temp_cols(:,3), [12, 12]); % 12x12 재배열
-% 순서정렬
-relabel_img = zeros(sizy,sizx); 
-relabel = 0;
-for ii = 1:12
-    rows = temp_rows(:,ii);
-    for jj = 1:12
-        relabel = relabel + 1;
-        cols = temp_cols(:,jj);
-        temp0 = ismember(rows, cols);
-        [~, ~, temp_label] = find(temp0 .* rows);
-        temp2 = (img1_watershed == temp_label);
-        relabel_img = relabel_img + temp2 .* relabel;
-    end
-end
-% figure(5), imagesc(relabel_img); title('reorder');

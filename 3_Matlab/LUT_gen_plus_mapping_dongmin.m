@@ -22,7 +22,7 @@ close all;
 %%
 clear all; close all;
 tic;
-filename = ['Sample9_30cm' '.mat'];
+filename = ['Sample15_thr2000_80cm' '.mat'];
 
 load(filename);
 data=[Sample(1,:); Sample(2,:); Sample(3,:); Sample(4,:)]';
