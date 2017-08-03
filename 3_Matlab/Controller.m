@@ -166,7 +166,7 @@ subplot(2,2,4); handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('M
             IM_Temp = full(sparse(Y,X,1,sizx,sizy));% rot90(full(sparse(Y,X,1,sizx,sizy))',2);
             IM_Sample = IM_Sample + IM_Temp;
 %             [relabel_img Valid] = pixel_segmentation(IM_Sample, sizx, sizy);
-            IM_Recon = reconstruct_coded_aperture(IM_Sample, coded_mask, relabel_img, Valid);
+            IM_Recon = reconstruct_coded_aperture(IM_Temp, coded_mask, relabel_img, Valid);
             
             if Valid
                 q_cnt = q_cnt + 1;
