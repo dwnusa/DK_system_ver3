@@ -107,6 +107,7 @@ if sum(RELABEL_IMG(:)) == 0
     error('pixel segmentation is required');
 else
     relabel_img = RELABEL_IMG;
+    line_img = (relabel_img == 0);
     Valid = true;
     queue = {};
     q_cnt = 0;
@@ -116,10 +117,10 @@ coded_mask=xlsread('19x19.xlsx');
 % 1.6 (60cm~70cm)   1.7    1.8    1.9    
 % 2.0    2.1    2.2 (30cm)   2.3    2.4    2.5
 % 2.6 (20cm)
-d=imresize(coded_mask,1.6,'bilinear');
+d=imresize(coded_mask,2.2,'bilinear');
 % À¥Ä·
-% Cam = webcam('USB2.0 PC Camera');
-% Cam.Resolution = '640x480';
+Cam = webcam('USB2.0 PC Camera');
+Cam.Resolution = '640x480';
 %
 Filename = FILENAME;
 h = waitbar(0,'1','Name', 'Sample extract...',...
@@ -132,14 +133,19 @@ ep00wire = TEMP;
 numRows = int32(4); 
 numCols = int32(Cap_SIZE);
 Sample = zeros(numRows,TOTAL_COUNT);
-IM_Temp = zeros(sizx, sizy); IM_Sample = zeros(sizx, sizy);
+IM_Temp = zeros(sizx, sizy); IM_Sample = zeros(sizx, sizy); zeros_img = zeros(480, 640);
 cnt = 0;
 figure(3),
 subplot(2,2,1); handlesPlot{1} = imagesc(IM_Temp);      colormap(jet);  title('Temporary Flood Image');
-subplot(2,2,2); handlesPlot{2} = imagesc(IM_Sample);    colormap(jet);  title('Cumulative Flood Image');
-subplot(2,2,3); handlesPlot{3} = imagesc(IM_Sample);    colormap(jet);  title('Pixel Segmentation');
-subplot(2,2,4); handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('Merged Image');
+subplot(2,2,2); handlesPlot{2} = imagesc(line_img);    colormap(jet);  title('Cumulative Flood Image');
+subplot(2,2,3); handlesPlot{3} = imagesc(IM_Sample);    colormap(jet);  title('Reconstruction Image');
+subplot(2,2,4); handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('CCD merge');
     while (cnt < TOTAL_COUNT)
+        
+%         figure(3),
+        ccd_img = rot90(snapshot(Cam),2);
+        subplot(2,2,4), imagesc(ccd_img);
+%         set(handlesPlot{4},'CData',ccd_img);% imshow();
         if getappdata(h,'canceling')
             break
         end
@@ -195,22 +201,50 @@ subplot(2,2,4); handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('M
             end
             
             set(handlesPlot{1},'CData',IM_Temp);% imagesc(IM_Temp); title('Flood Image'); colormap(jet); % Display XYSUM
-            set(handlesPlot{2},'CData',IM_Sample);% imagesc(IM_Sample); title('Flood Image'); colormap(jet); % Display XYSUM
-            set(handlesPlot{3},'CData',relabel_img);% imshow(snapshot(Cam));
-            set(handlesPlot{4},'CData',sum_relabel_img);% imshow(snapshot(Cam));
+            set(handlesPlot{2},'CData',IM_Sample + line_img.*max(IM_Sample(:)));% imagesc(IM_Sample); title('Flood Image'); colormap(jet); % Display XYSUM
+%             set(handlesPlot{3},'CData',rot90(snapshot(Cam),2));% imshow();
+            set(handlesPlot{3},'CData',sum_relabel_img);% imshow(snapshot(Cam));
+            
+            % roi cutting process
+            offsetX=67; 
+            offsetY=67;
+            width = 55;
+            height = 55;
+            rangeX = offsetX + (1:width);
+            rangeY = offsetY + (1:height);
+            roi_img = sum_relabel_img(rangeY, rangeX);
+            roi_img = (roi_img-min(roi_img(:)))./(max(roi_img(:))-min(roi_img(:))).*100;
+            roi_img = (roi_img > 70).*roi_img;
+            % overlay process
+            offsetX = 160;% + q_cnt;%.*9;
+            offsetY = 156;% + q_cnt;%.*9;
+            roi_img=imresize(roi_img,3,'bilinear');
         end
+        hold on;
+        try
+            handlesPlot{5} = imagesc(roi_img);
+        catch
+            roi_img = zeros(1);
+            handlesPlot{5} = imagesc(roi_img);
+        end;
+        xpos = get(handlesPlot{5}, 'XData');
+        ypos = get(handlesPlot{5}, 'YData');
+        xpos = xpos + offsetX;
+        ypos = ypos + offsetY;
+        set(handlesPlot{5}, 'XData', xpos, 'YData', ypos, 'AlphaData', 0.3);
+        hold off;
         waitbar(cnt/TOTAL_COUNT,h,sprintf('%d / %d',cnt, TOTAL_COUNT));
-        pause(1/10);
+%         pause(1/10);
         disp([num2str(src_end_index) '/' num2str(cnt) '/' num2str(TOTAL_COUNT)]);
     end
 delete(h);
-% delete(Cam);
+delete(Cam);
 catch e
     delete(h);
+    delete(Cam);
 %     fprintf(1,'The identifier was:\n%s',e.identifier);
     fprintf(1,'There was an error! \nThe message was:\n%s\n',e.message);
 %     disp('\n');
-%     delete(Cam);
 end
 savefile(Filename, dst_end_index, TOTAL_COUNT, Sample);
 

@@ -15,7 +15,7 @@ pixel_map = zeros(12,12);
     a=xcorr2(iii,d);
     aa=imresize(a,1.6,'bilinear');
 %     IM_Recon = rot90(-aa,-1);
-    IM_Recon = aa;
+    IM_Recon = flipud(aa);
 else
     maxIntensity = max(IM_Sample(:));
     line = (relabel_img == 0);
