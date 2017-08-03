@@ -102,7 +102,7 @@ figure(2),subplot(5,1,5), plot(out(1:4,:)');axis([0 numCols miny maxy]);title('C
 % --- Executes on button press in btn_Sample.
 function btn_Sample_Callback(hObject, eventdata, handles)
 global TOTAL_COUNT TEMP Cap_SIZE MODE FILENAME SIZX SIZY RELABEL_IMG;
-queue_size = 5;
+queue_size = 3;
 if sum(RELABEL_IMG(:)) == 0
     error('pixel segmentation is required');
 else
@@ -112,8 +112,11 @@ else
     q_cnt = 0;
 end
 coded_mask=xlsread('19x19.xlsx');
-% 1.0    1.1    1.2    1.3    1.4    1.5    1.6    1.7    1.8    1.9    2.0    2.1    2.2    2.3    2.4    2.5
-d=imresize(coded_mask,2.2,'bilinear');
+% 1.0    1.1    1.2    1.3    1.4    1.5    
+% 1.6 (60cm~70cm)   1.7    1.8    1.9    
+% 2.0    2.1    2.2 (30cm)   2.3    2.4    2.5
+% 2.6 (20cm)
+d=imresize(coded_mask,1.6,'bilinear');
 % À¥Ä·
 % Cam = webcam('USB2.0 PC Camera');
 % Cam.Resolution = '640x480';
@@ -182,7 +185,7 @@ subplot(2,2,4); handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('M
 %                         for i = 1:queue_size
 %                             sum_relabel_img = queue{i} + queue{2} + queue{3};% + queue{4} + queue{5};
 %                         end
-                        sum_relabel_img = queue{1} + queue{2} + queue{3} + queue{4} + queue{5};% + queue{4} + queue{5};
+                        sum_relabel_img = queue{1} + queue{2} + queue{3};% + queue{4} + queue{5};
                     catch e
                         disp('queue error occurred');
                     end
