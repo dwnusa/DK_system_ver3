@@ -112,8 +112,6 @@ else
     q_cnt = 0;
 end
 coded_mask=xlsread('19x19.xlsx');
-% 1.0    1.1    1.2    1.3    1.4    1.5    1.6    1.7    1.8    1.9    2.0    2.1    2.2    2.3    2.4    2.5
-d=imresize(coded_mask,2.2,'bilinear');
 % À¥Ä·
 % Cam = webcam('USB2.0 PC Camera');
 % Cam.Resolution = '640x480';
@@ -168,14 +166,12 @@ subplot(2,2,4); handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('M
             IM_Temp = full(sparse(Y,X,1,sizx,sizy));% rot90(full(sparse(Y,X,1,sizx,sizy))',2);
             IM_Sample = IM_Sample + IM_Temp;
 %             [relabel_img Valid] = pixel_segmentation(IM_Sample, sizx, sizy);
-
-            IM_Recon = reconstruct_coded_aperture(IM_Temp, d, relabel_img, Valid);
+            IM_Recon = reconstruct_coded_aperture(IM_Temp, coded_mask, relabel_img, Valid);
             
             if Valid
                 q_idx = mod(q_cnt,queue_size)+1;
-                q_cnt = q_cnt + 1;
                 queue{q_idx} = IM_Recon;
-                if q_cnt < (queue_size)
+                if q_cnt < (queue_size-1)
                     sum_relabel_img = IM_Recon;
                 else
                     try
@@ -184,7 +180,7 @@ subplot(2,2,4); handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('M
 %                         end
                         sum_relabel_img = queue{1} + queue{2} + queue{3} + queue{4} + queue{5};% + queue{4} + queue{5};
                     catch e
-                        disp('queue error occurred');
+                        a = 1;
                     end
                 end
             else
