@@ -89,7 +89,7 @@ ep00wire = TEMP;
 numRows = int32(4); numCols = int32(Cap_SIZE);
 out = (Transfer_extract(numRows, numCols, ep00wire));
 if size(out,2) ~= 1
-    out = out(1:4,11:numCols-10);
+    out = out(1:4,:);
 end
 
 pady = 500; miny = min(out(:)) - pady; maxy = max(out(:)) + pady;
@@ -102,17 +102,16 @@ figure(2),subplot(5,1,5), plot(out(1:4,:)');axis([0 numCols miny maxy]);title('C
 % --- Executes on button press in btn_Sample.
 function btn_Sample_Callback(hObject, eventdata, handles)
 global TOTAL_COUNT TEMP Cap_SIZE MODE FILENAME SIZX SIZY RELABEL_IMG;
+queue_size = 3;
 if sum(RELABEL_IMG(:)) == 0
-    Valid = false;
     error('pixel segmentation is required');
-    return;
 else
     relabel_img = RELABEL_IMG;
     Valid = true;
     queue = {};
     q_cnt = 0;
 end
-coded_mask=xlsread('19x19_anti.xlsx');
+coded_mask=xlsread('19x19.xlsx');
 % À¥Ä·
 % Cam = webcam('USB2.0 PC Camera');
 % Cam.Resolution = '640x480';
@@ -167,17 +166,20 @@ subplot(2,2,4); handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('M
             IM_Temp = full(sparse(Y,X,1,sizx,sizy));% rot90(full(sparse(Y,X,1,sizx,sizy))',2);
             IM_Sample = IM_Sample + IM_Temp;
 %             [relabel_img Valid] = pixel_segmentation(IM_Sample, sizx, sizy);
-            IM_Recon = reconstruct_coded_aperture(IM_Temp, coded_mask, relabel_img, Valid);
+            IM_Recon = reconstruct_coded_aperture(IM_Sample, coded_mask, relabel_img, Valid);
             
             if Valid
                 q_cnt = q_cnt + 1;
-                q_idx = mod(q_cnt,5)+1;
+                q_idx = mod(q_cnt,queue_size)+1;
                 queue{q_idx} = IM_Recon;
-                if q_cnt < 4
+                if q_cnt < (queue_size-1)
                     sum_relabel_img = IM_Recon;
                 else
                     try
-                    sum_relabel_img = queue{1} + queue{2} + queue{3} + queue{4} + queue{5};
+%                         for i = 1:queue_size
+%                             sum_relabel_img = queue{i} + queue{2} + queue{3};% + queue{4} + queue{5};
+%                         end
+                        sum_relabel_img = queue{1} + queue{2} + queue{3};% + queue{4} + queue{5};
                     catch e
                         a = 1;
                     end
@@ -223,7 +225,6 @@ figure(4),
 subplot(1,2,1), handlesPlot{1} = imagesc(IM_Sample); colormap(jet); title('Cumulative Flood Image');
 subplot(1,2,2), handlesPlot{2} = imagesc(IM_Sample); colormap(jet); title('Cumulative Flood Image');
     while (cnt < TOTAL_COUNT)
-        q_cnt = q_cnt + 1;
         if getappdata(h,'canceling')
             break
         end
@@ -236,8 +237,14 @@ subplot(1,2,2), handlesPlot{2} = imagesc(IM_Sample); colormap(jet); title('Cumul
                 X = min(sizx, max(1, round((Temp(1,:)+Temp(2,:))./Energy.*300+100)));
                 Y = min(sizy, max(1, round((Temp(1,:)+Temp(3,:))./Energy.*300+100)));
             else  % SCD
-                Y = min(sizy, max(1, round((Temp(3,:)-Temp(4,:))./(Temp(4,:)+Temp(3,:)).*128*2+256))); %  xx = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data3[i] - data4[i]) / total  );
-                X = min(sizx, max(1, round((Temp(2,:)-Temp(1,:))./(Temp(2,:)+Temp(1,:)).*128*2+256))); %  yy = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data1[i] - data2[i]) / total  );
+                Y = min(sizy, max(1, round((Temp(3,:)-Temp(4,:))./(Temp(3,:)+Temp(4,:)).*128*2+256))); %  xx = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data3[i] - data4[i]) / total  );
+                X = min(sizx, max(1, round((Temp(1,:)-Temp(2,:))./(Temp(1,:)+Temp(2,:)).*128*2+256))); %  yy = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data1[i] - data2[i]) / total  );
+% rawdata(i,1)=
+%         
+% rawdata(i,1)=round((image_size/2)*(data(i,1)-data(i,2))/(data(i,2)+data(i,1))) + (image_size/2);   % x-coordinate
+% rawdata(i,2)=round((image_size/2) - (round(image_size/2)*(data(i,3)-data(i,4))/(data(i,4)+data(i,3))));  % y-coordinate
+% rawdata(i,4)=(rawdata(i,2))+(image_size*rawdata(i,1))-1;  % pixel number            
+            
             end
             src_end_index   = min(length_Temp, TOTAL_COUNT-cnt);
             cnt = cnt + src_end_index;
