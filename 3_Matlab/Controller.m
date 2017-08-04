@@ -185,24 +185,20 @@ handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('CCD merge');
 
             IM_Recon = reconstruct_coded_aperture(IM_Temp, d, relabel_img, Valid);
             
-            if Valid
-                q_idx = mod(q_cnt,queue_size)+1;
-                q_cnt = q_cnt + 1;
-                queue{q_idx} = IM_Recon;
-                if q_cnt < (queue_size)
-                    sum_relabel_img = IM_Recon;
-                else
-                    try
+            q_idx = mod(q_cnt,queue_size)+1;
+            q_cnt = q_cnt + 1;
+            queue{q_idx} = IM_Recon;
+            if q_cnt < (queue_size)
+                sum_relabel_img = IM_Recon;
+            else
+                try
 %                         for i = 1:queue_size
 %                             sum_relabel_img = queue{i} + queue{2} + queue{3};% + queue{4} + queue{5};
 %                         end
-                        sum_relabel_img = queue{1} + queue{2} + queue{3} + queue{4} + queue{5} + queue{6};
-                    catch e
-                        disp('queue error occurred');
-                    end
+                    sum_relabel_img = queue{1} + queue{2} + queue{3} + queue{4} + queue{5} + queue{6};
+                catch e
+                    disp('queue error occurred');
                 end
-            else
-                sum_relabel_img = IM_Recon;
             end
             
 %             set(handlesPlot{1},'CData',IM_Temp);% imagesc(IM_Temp); title('Flood Image'); colormap(jet); % Display XYSUM
@@ -211,6 +207,7 @@ handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('CCD merge');
             subplot(1,2,1); 
             set(handlesPlot{3},'CData',sum_relabel_img);% imshow(snapshot(Cam));
             subplot(1,2,2);
+            
             % roi cutting process
             offsetX=66;%66;(30cm)%37;(3m) 
             offsetY=67;%67;(30cm);36;(3m)
@@ -221,12 +218,16 @@ handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('CCD merge');
             roi_img = sum_relabel_img(rangeY, rangeX);
             roi_img = (roi_img-min(roi_img(:)))./(max(roi_img(:))-min(roi_img(:))).*100;
             roi_img = (roi_img > 88).*roi_img;
+            
             % overlay process
             offsetX = 236;% + q_cnt;%.*9;
             offsetY = 161;% + q_cnt;%.*9;
             roi_img=imresize(roi_img,3,'bilinear');
         end
+        
+        
         hold on;
+        
         try
             handlesPlot{5} = imagesc(roi_img);
         catch
@@ -238,6 +239,7 @@ handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('CCD merge');
         xpos = xpos + offsetX;
         ypos = ypos + offsetY;
         set(handlesPlot{5}, 'XData', xpos, 'YData', ypos, 'AlphaData', 0.3);
+        
         hold off;
 %         waitbar(cnt/TOTAL_COUNT,h,sprintf('%d / %d',cnt, TOTAL_COUNT));
 %         pause(1/10);
@@ -253,6 +255,14 @@ catch e
 %     disp('\n');
 end
 savefile(Filename, dst_end_index, TOTAL_COUNT, Sample);
+
+
+
+
+
+
+
+
 
 % --- Executes on button press in btn_Pixel.
 function btn_Pixel_Callback(hObject, eventdata, handles)
