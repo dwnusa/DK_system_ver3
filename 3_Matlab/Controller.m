@@ -138,18 +138,16 @@ cnt = 0;
 h = figure(3),
 % subplot(2,2,1); handlesPlot{1} = imagesc(IM_Temp);      colormap(jet);  title('Temporary Flood Image');
 % subplot(2,2,2); handlesPlot{2} = imagesc(line_img);    colormap(jet);  title('Cumulative Flood Image');
-subplot(1,2,1); 
-handlesPlot{3} = imagesc(IM_Sample);    colormap(jet);  title('Reconstruction Image');
-subplot(1,2,2); 
-handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('CCD merge');
+subplot(1,2,1), handlesPlot{3} = imagesc(IM_Sample);    colormap(jet);  title('Reconstruction Image'); colorbar;
+subplot(1,2,2), handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('CCD merge');
     while (cnt < TOTAL_COUNT)
         if ~ishandle(h)
             break;
         end
-        subplot(1,2,2);
+        
         ccd_img = rot90(snapshot(Cam),2);
 %         subplot(2,2,4), 
-        imagesc(ccd_img);
+        subplot(1,2,2), imagesc(ccd_img);
 %         set(handlesPlot{4},'CData',ccd_img);% imshow();
 %         if getappdata(h,'canceling')
 %             break
@@ -204,9 +202,8 @@ handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('CCD merge');
 %             set(handlesPlot{1},'CData',IM_Temp);% imagesc(IM_Temp); title('Flood Image'); colormap(jet); % Display XYSUM
 %             set(handlesPlot{2},'CData',IM_Sample + line_img.*max(IM_Sample(:)));% imagesc(IM_Sample); title('Flood Image'); colormap(jet); % Display XYSUM
 %             set(handlesPlot{3},'CData',rot90(snapshot(Cam),2));% imshow();
-            subplot(1,2,1); 
-            set(handlesPlot{3},'CData',sum_relabel_img);% imshow(snapshot(Cam));
-            subplot(1,2,2);
+            subplot(1,2,1), set(handlesPlot{3},'CData',sum_relabel_img);% imshow(snapshot(Cam));
+%             subplot(1,2,2);
             
             % roi cutting process
             offsetX=66;%66;(30cm)%37;(3m) 
@@ -229,16 +226,16 @@ handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('CCD merge');
         hold on;
         
         try
-            handlesPlot{5} = imagesc(roi_img);
+            subplot(1,2,2), handlesPlot{5} = imagesc(roi_img);
         catch
             roi_img = zeros(1);
-            handlesPlot{5} = imagesc(roi_img);
+            subplot(1,2,2), handlesPlot{5} = imagesc(roi_img);
         end;
         xpos = get(handlesPlot{5}, 'XData');
         ypos = get(handlesPlot{5}, 'YData');
         xpos = xpos + offsetX;
         ypos = ypos + offsetY;
-        set(handlesPlot{5}, 'XData', xpos, 'YData', ypos, 'AlphaData', 0.3);
+        subplot(1,2,2), set(handlesPlot{5}, 'XData', xpos, 'YData', ypos, 'AlphaData', 0.3);
         
         hold off;
 %         waitbar(cnt/TOTAL_COUNT,h,sprintf('%d / %d',cnt, TOTAL_COUNT));

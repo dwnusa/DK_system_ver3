@@ -13,7 +13,7 @@ pixel_map = zeros(12,12);
     pixel_map = pixel_map';
     iii=imresize(pixel_map,3,'bilinear');
     a=xcorr2(iii,d);
-    aa=imresize(a,1.6,'bilinear');
+    aa=imresize(a,2,'bilinear');
 %     IM_Recon = rot90(-aa,-1);
     IM_Recon = flipud(aa);
 else
