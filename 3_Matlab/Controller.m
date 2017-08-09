@@ -113,11 +113,11 @@ else
     q_cnt = 0;
 end
 coded_mask=xlsread('19x19.xlsx');
-% 1.0    1.1    1.2    1.3    1.4    1.5    
+% 1.0    1.1    1.2 (3m)    1.3    1.4    1.5    
 % 1.6 (60cm~70cm)   1.7    1.8    1.9    
 % 2.0    2.1    2.2 (30cm)   2.3    2.4    2.5
 % 2.6 (20cm)
-d=imresize(coded_mask,2.2,'bilinear');
+d=imresize(coded_mask,1.2,'bilinear');
 % À¥Ä·
 Cam = webcam('USB2.0 PC Camera');
 Cam.Resolution = '640x480';
@@ -126,7 +126,7 @@ Filename = FILENAME;
 % h = waitbar(0,'1','Name', 'Sample extract...',...
 %     'CreateCancelBtn',...
 %     'setappdata(gcbf,''canceling'',1)');
-try
+% try
 % setappdata(h,'canceling',0);
 sizx = SIZX; sizy = SIZY;
 ep00wire = TEMP;
@@ -135,24 +135,44 @@ numCols = int32(Cap_SIZE);
 Sample = zeros(numRows,TOTAL_COUNT);
 IM_Temp = zeros(sizx, sizy); IM_Sample = zeros(sizx, sizy); zeros_img = zeros(480, 640);
 cnt = 0;
-h = figure(3),
+h3 = figure(3);
+% h4 = figure(4);
+
 % subplot(2,2,1); handlesPlot{1} = imagesc(IM_Temp);      colormap(jet);  title('Temporary Flood Image');
 % subplot(2,2,2); handlesPlot{2} = imagesc(line_img);    colormap(jet);  title('Cumulative Flood Image');
-subplot(1,2,1), handlesPlot{3} = imagesc(IM_Sample);    colormap(jet);  title('Reconstruction Image'); colorbar;
-subplot(1,2,2), handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('CCD merge');
+% subplot(1,2,1), 
+ccd_img = rot90(snapshot(Cam),2);
+figure(h3), 
+% subplot(1,2,1), 
+subplot(1,2,1), handlesPlot{1} = imagesc(IM_Sample);    colormap(jet);  title('Reconstruction Image');% colorbar;
+% subplot(1,2,2), 
+% figure(h4), 
+% figure(h4), 
+% subplot(1,2,2), 
+subplot(1,2,2), handlesPlot{2} = imagesc(ccd_img);    colormap(jet);  title('CCD merge');
+% subplot(1,2,2), 
+handlesPlot{3} = imagesc(IM_Sample);
+% set(h3,'DoubleBuffer','on');
+% set(h4,'DoubleBuffer','on');
+% set(handlesPlot{3},'DoubleBuffer','on');
+% set(handlesPlot{4},'DoubleBuffer','on');
+% set(handlesPlot{5},'DoubleBuffer','on');
     while (cnt < TOTAL_COUNT)
-        if ~ishandle(h)
+        recon_show_flag = get(handles.ep00wire27,'Value');
+        if ~ishandle(h3) % || ~ishandle(h4)
             break;
         end
         
         ccd_img = rot90(snapshot(Cam),2);
-%         subplot(2,2,4), 
-        subplot(1,2,2), imagesc(ccd_img);
-%         set(handlesPlot{4},'CData',ccd_img);% imshow();
-%         if getappdata(h,'canceling')
-%             break
-%         end
+        
+%         figure(h4), 
+        subplot(1,2,2), 
+        imagesc(ccd_img);
+%         figure(h4), % imagesc(ccd_img);
+%         set(handlesPlot{2}, 'CData', ccd_img);
+        
         Temp = double(Transfer_capture(numRows, numCols, ep00wire));
+        try
         if size(Temp,2) ~= 1
 %             Temp1 = Temp0(:,1:numCols-1);
             length_Temp = length(Temp);
@@ -193,7 +213,8 @@ subplot(1,2,2), handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('C
 %                         for i = 1:queue_size
 %                             sum_relabel_img = queue{i} + queue{2} + queue{3};% + queue{4} + queue{5};
 %                         end
-                    sum_relabel_img = queue{1} + queue{2} + queue{3} + queue{4} + queue{5} + queue{6};
+                    sum_relabel_img = queue{1} + queue{2} + queue{3} + queue{4} + queue{5} + queue{6} %%+ queue{7} + queue{8};
+                
                 catch e
                     disp('queue error occurred');
                 end
@@ -202,40 +223,62 @@ subplot(1,2,2), handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('C
 %             set(handlesPlot{1},'CData',IM_Temp);% imagesc(IM_Temp); title('Flood Image'); colormap(jet); % Display XYSUM
 %             set(handlesPlot{2},'CData',IM_Sample + line_img.*max(IM_Sample(:)));% imagesc(IM_Sample); title('Flood Image'); colormap(jet); % Display XYSUM
 %             set(handlesPlot{3},'CData',rot90(snapshot(Cam),2));% imshow();
-            subplot(1,2,1), set(handlesPlot{3},'CData',sum_relabel_img);% imshow(snapshot(Cam));
-%             subplot(1,2,2);
+%             subplot(1,2,1), 
+            if recon_show_flag == true
+%                 figure(h3), 
+                subplot(1,2,1),
+                set(handlesPlot{1},'CData',sum_relabel_img);% imshow(snapshot(Cam));
+            end;
             
             % roi cutting process
-            offsetX=66;%66;(30cm)%37;(3m) 
-            offsetY=67;%67;(30cm);36;(3m)
-            width = 58;%58(30cm)%56(3m)
-            height = 53;%53(30cm)%56(3m)
+            offsetX=45;%83;(30cm)%46;(3m) 45 (5m)    83
+            offsetY=45;%82;(30cm);46;(3m) 45 (5m)   82
+            width = 71;%69(30cm)%70(3m) 71 (5m)   69
+            height = 71;%69(30cm)%70(3m) 71 (5m)   69
             rangeX = offsetX + (1:width);
             rangeY = offsetY + (1:height);
             roi_img = sum_relabel_img(rangeY, rangeX);
             roi_img = (roi_img-min(roi_img(:)))./(max(roi_img(:))-min(roi_img(:))).*100;
-            roi_img = (roi_img > 88).*roi_img;
+            roi_img = (roi_img > 97).*roi_img;
             
             % overlay process
-            offsetX = 236;% + q_cnt;%.*9;
-            offsetY = 161;% + q_cnt;%.*9;
-            roi_img=imresize(roi_img,3,'bilinear');
+            offsetX = 80;% + q_cnt;%.*9;  236
+            offsetY = 50;% + q_cnt;%.*9;   161
+            roi_img=imresize(roi_img,2.5,'bilinear');  %3
+            roi_img= padarray(roi_img,[115 150]);
         end
-        
-        
         hold on;
         
         try
-            subplot(1,2,2), handlesPlot{5} = imagesc(roi_img);
+%             subplot(1,2,2), set(handlesPlot{3},'CData',sum_relabel_img);% imshow(snapshot(Cam));
+%             figure(h4), handlesPlot{3} = imagesc(roi_img);
+%             figure(h4), 
+            subplot(1,2,2), 
+            handlesPlot{3} = imagesc(roi_img);
+%             set(handlesPlot{3}, 'CData', roi_img);
+            % handlesPlot{3} = imagesc(roi_img);
+%             set(handlesPlot{3}, 'CData', roi_img);
+%             handlesPlot{5} = imagesc(roi_img);
         catch
-            roi_img = zeros(1);
-            subplot(1,2,2), handlesPlot{5} = imagesc(roi_img);
+           % roi_img = zeros(1);
+%             figure(h4), handlesPlot{5} = imagesc(roi_img);
+            warning('uncertain error');
         end;
-        xpos = get(handlesPlot{5}, 'XData');
-        ypos = get(handlesPlot{5}, 'YData');
+        
+        catch e
+        %     delete(h);
+%             delete(Cam);
+        %     fprintf(1,'The identifier was:\n%s',e.identifier);
+            fprintf(1,'There was an error! \nThe message was:\n%s\n',e.message);
+        %     disp('\n');
+        end
+        xpos = get(handlesPlot{3}, 'XData');
+        ypos = get(handlesPlot{3}, 'YData');
         xpos = xpos + offsetX;
         ypos = ypos + offsetY;
-        subplot(1,2,2), set(handlesPlot{5}, 'XData', xpos, 'YData', ypos, 'AlphaData', 0.3);
+%         figure(h4), 
+        subplot(1,2,2),
+        set(handlesPlot{3}, 'XData', xpos, 'YData', ypos, 'AlphaData', 0.3);
         
         hold off;
 %         waitbar(cnt/TOTAL_COUNT,h,sprintf('%d / %d',cnt, TOTAL_COUNT));
@@ -244,13 +287,13 @@ subplot(1,2,2), handlesPlot{4} = imagesc(IM_Sample);    colormap(jet);  title('C
     end
 % delete(h);
 delete(Cam);
-catch e
-%     delete(h);
-    delete(Cam);
-%     fprintf(1,'The identifier was:\n%s',e.identifier);
-    fprintf(1,'There was an error! \nThe message was:\n%s\n',e.message);
-%     disp('\n');
-end
+% catch e
+% %     delete(h);
+%     delete(Cam);
+% %     fprintf(1,'The identifier was:\n%s',e.identifier);
+%     fprintf(1,'There was an error! \nThe message was:\n%s\n',e.message);
+% %     disp('\n');
+% end
 savefile(Filename, dst_end_index, TOTAL_COUNT, Sample);
 
 
@@ -264,6 +307,10 @@ savefile(Filename, dst_end_index, TOTAL_COUNT, Sample);
 % --- Executes on button press in btn_Pixel.
 function btn_Pixel_Callback(hObject, eventdata, handles)
 global TOTAL_COUNT TEMP Cap_SIZE MODE SIZX SIZY RELABEL_IMG;
+
+queue_size = 6;
+queue = {};
+q_cnt = 0;
 h = waitbar(0,'1','Name', 'Sample extract...',...
     'CreateCancelBtn',...
     'setappdata(gcbf,''canceling'',1)');
@@ -287,8 +334,8 @@ subplot(1,2,2), handlesPlot{2} = imagesc(IM_Sample); colormap(jet); title('Cumul
             length_Temp = length(Temp);
             if (MODE == false) % DPC
                 Energy = sum(Temp); 
-                X = min(sizx, max(1, round((Temp(1,:)+Temp(2,:))./Energy.*300+100)));
-                Y = min(sizy, max(1, round((Temp(1,:)+Temp(3,:))./Energy.*300+100)));
+                X = min(sizx, max(1, round((Temp(4,:)+Temp(2,:))./Energy.*300+100)));
+                Y = min(sizy, max(1, round((Temp(4,:)+Temp(3,:))./Energy.*300+100)));
             else  % SCD
                 Y = min(sizy, max(1, round((Temp(3,:)-Temp(4,:))./(Temp(3,:)+Temp(4,:)).*128*2+256))); %  xx = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data3[i] - data4[i]) / total  );
                 X = min(sizx, max(1, round((Temp(1,:)-Temp(2,:))./(Temp(1,:)+Temp(2,:)).*128*2+256))); %  yy = Math.Round(    image_size / 2 + (image_size / 2) * 3 * (data1[i] - data2[i]) / total  );
@@ -301,10 +348,29 @@ subplot(1,2,2), handlesPlot{2} = imagesc(IM_Sample); colormap(jet); title('Cumul
             end
             src_end_index   = min(length_Temp, TOTAL_COUNT-cnt);
             cnt = cnt + src_end_index;
+                        
             IM_Temp = full(sparse(Y,X,1,sizx,sizy));
             IM_Sample = IM_Sample + IM_Temp;
+            
             % ÇÈ¼¿ºÐÇÒ
             [relabel_img Valid]  = pixel_segmentation(IM_Sample, sizx, sizy);
+            
+            q_idx = mod(q_cnt,queue_size)+1;
+            q_cnt = q_cnt + 1;
+            queue{q_idx} = IM_Temp;
+            if q_cnt < (queue_size)
+                sum_IM_Temp_img = IM_Temp;
+            else
+                try
+%                         for i = 1:queue_size
+%                             sum_relabel_img = queue{i} + queue{2} + queue{3};% + queue{4} + queue{5};
+%                         end
+                    sum_IM_Temp_img = queue{1} + queue{2} + queue{3} + queue{4} + queue{5} + queue{6}; %%+ queue{7} + queue{8};
+                
+                catch e
+                    disp('queue error occurred');
+                end
+            end
 %             set(handlesPlot{1},'CData',IM_Temp);% imagesc(IM_Temp); title('Flood Image'); colormap(jet); % Display XYSUM
             set(handlesPlot{1},'CData',IM_Sample);% imagesc(IM_Sample); title('Flood Image'); colormap(jet); % Display XYSUM
             set(handlesPlot{2},'CData',relabel_img);% imshow(snapshot(Cam));
